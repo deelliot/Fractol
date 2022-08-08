@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 11:03:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/08 15:26:04 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/08 16:45:13 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ double	mandelbrot(t_win *win, t_complex *points)
 void plot_points(t_win *win)
 {
 	double	m;
-	double	colour;
 
 	win->points.y = 0;
 	while (win->points.y < HEIGHT)
@@ -61,10 +60,9 @@ void plot_points(t_win *win)
 		while (win->points.x < WIDTH)
 		{
 			m = mandelbrot(win, &win->points);
-			colour = 255 - (int)(m * 255 / win->max_iter);
-			// set_colour(win, m);
-			mlx_pixel_put(win->mlx, win->win, win->points.x, win->points.y, 0xFF0000);
-			// img_pixel_put(&win->img, win->points.x, win->points.y, colour);
+			set_colour(win, m);
+			// printf("x: %f; y: %f, colour = %d\n", win->points.x, win->points.y, win->colour);
+			img_pixel_put(&win->img, win->points.x, win->points.y, win->colour);
 			win->points.x++;
 		}
 		win->points.y++;
