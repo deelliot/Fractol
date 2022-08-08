@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 11:03:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/08 16:45:13 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/08 17:10:39 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,22 +51,26 @@ double	mandelbrot(t_win *win, t_complex *points)
 
 void plot_points(t_win *win)
 {
-	double	m;
+	// double	m;
 
 	win->points.y = 0;
-	while (win->points.y < HEIGHT)
+	while (win->points.y < 10)
 	{
 		win->points.x = 0;
-		while (win->points.x < WIDTH)
+		while (win->points.x < 10)
 		{
-			m = mandelbrot(win, &win->points);
-			set_colour(win, m);
+			// m = mandelbrot(win, &win->points);
+			// set_colour(win, m);
 			// printf("x: %f; y: %f, colour = %d\n", win->points.x, win->points.y, win->colour);
-			img_pixel_put(&win->img, win->points.x, win->points.y, win->colour);
+			if (win->points.x == 2)
+				win->colour = 0xFF0000;
+			else
+				(win->colour = 0x000000);
+			img_pixel_put(&win->img, win->points.x, win->points.y, 0xFF0000);
 			win->points.x++;
 		}
 		win->points.y++;
 	}
-	mlx_put_image_to_window(win->mlx, win->win, win->img.img, 0, 0);
+	mlx_put_image_to_window(win->mlx, win->win, win->img.img, 360, 540);
 	mlx_loop(win->mlx);
 }
