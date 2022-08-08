@@ -6,12 +6,11 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 11:03:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/05 17:50:07 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/08 14:53:25 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-#include <stdio.h>
 
 //mandelbrot x scale (-2, 0.47)
 //mandelbrot y scale (-1.12, 1.12)
@@ -68,5 +67,4 @@ void plot_points(t_win *win)
 		win->points.y++;
 	}
 	mlx_put_image_to_window(win->mlx, win->win, win->img.img, 0, 0);
-	mlx_loop(win->mlx);
 }

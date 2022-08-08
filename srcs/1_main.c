@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:20:37 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/05 16:04:54 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/08 14:51:29 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ int	main(int argc, char** argv)
 			handle_errors(win, USAGE);
 		initialise_window(&win[i], argv[i + 1]);
 		mlx_hook(win[i].win, KEY_DOWN, 0, handle_input, &win[i]);
+		window_key(&win[i]);
 		plot_points(win);
+		mlx_loop(&win[i].mlx);
 		i++;
 	}
 	return (0);

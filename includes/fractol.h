@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/08 14:21:02 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/08 14:49:05 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,6 @@ int		handle_input(int key, t_win *win);
 void	plot_points(t_win *win);
 void	set_colour(t_win *win, double n);
 void	img_pixel_put(t_img *img, int x, int y, int colour);
+void	window_key(t_win *win);
 
 #endif

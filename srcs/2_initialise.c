@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:36:08 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/05 16:26:02 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/08 14:54:52 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	initialise_image(t_img *img, t_win *win)
 
 void	initialise_window(t_win *win, char *argv)
 {
-
 	win->mlx = mlx_init();
 	if (!win->mlx)
 		handle_errors(win, "error");
@@ -31,6 +30,5 @@ void	initialise_window(t_win *win, char *argv)
 	if (!win->win)
 		handle_errors(win, "error");
 	initialise_image(&win->img, win);
-	ft_putendl(argv);
 	win->max_iter = 400;
 }
