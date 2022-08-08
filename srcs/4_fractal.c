@@ -6,11 +6,12 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 11:03:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/08 14:53:25 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/08 15:26:04 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
+#include <stdio.h>
 
 //mandelbrot x scale (-2, 0.47)
 //mandelbrot y scale (-1.12, 1.12)
@@ -51,6 +52,7 @@ double	mandelbrot(t_win *win, t_complex *points)
 void plot_points(t_win *win)
 {
 	double	m;
+	double	colour;
 
 	win->points.y = 0;
 	while (win->points.y < HEIGHT)
@@ -59,12 +61,14 @@ void plot_points(t_win *win)
 		while (win->points.x < WIDTH)
 		{
 			m = mandelbrot(win, &win->points);
-			set_colour(win, m);
-			mlx_pixel_put(win->mlx, win->win, win->points.x, win->points.y, win->colour);
-			// img_pixel_put(&win->img, win->points.x, win->points.y, win->colour);
+			colour = 255 - (int)(m * 255 / win->max_iter);
+			// set_colour(win, m);
+			mlx_pixel_put(win->mlx, win->win, win->points.x, win->points.y, 0xFF0000);
+			// img_pixel_put(&win->img, win->points.x, win->points.y, colour);
 			win->points.x++;
 		}
 		win->points.y++;
 	}
 	mlx_put_image_to_window(win->mlx, win->win, win->img.img, 0, 0);
+	mlx_loop(win->mlx);
 }
