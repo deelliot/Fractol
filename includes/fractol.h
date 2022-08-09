@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/09 14:49:37 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/10 00:03:51 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "../minilibx/mlx.h"
 # include <math.h>
 # include <pthread.h>
+# include <stdio.h>
 
 /* pthreads library is needed for multithreading */
 
@@ -38,6 +39,8 @@
 # define ZOOM_OUT 31
 # define COLOUR 49
 # define RESET 36
+# define ITER_UP 126
+# define ITER_DOWN 125
 
 typedef struct s_img
 {
@@ -74,6 +77,7 @@ typedef struct s_win
 void	handle_errors(t_win	*win, char *str);
 void	free_win(t_win *win);
 void	initialise_window(t_win *win, char *argv);
+void	execute_image(t_win *win);
 int		handle_input(int key, t_win *win);
 void	plot_points(t_win *win);
 void	set_colour(t_win *win, double n);

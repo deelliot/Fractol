@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:36:08 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/09 12:50:16 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/09 23:55:16 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ void	initialise_window(t_win *win, char *argv)
 	if (!win->win)
 		handle_errors(win, "error");
 	initialise_image(&win->img, win);
-	win->max_iter = 100;
+	win->max_iter = 150;
 }

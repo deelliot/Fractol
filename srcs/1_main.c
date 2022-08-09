@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:20:37 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/09 14:02:22 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/10 00:03:27 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,14 @@ void	check_argument(t_win *win, char *argv)
 		win->fractol_option = 1;
 	else
 		handle_errors(win, USAGE);
+}
+
+void	execute_image(t_win *win)
+{
+	plot_points(win);
+	mlx_put_image_to_window(win->mlx, win->win, win->img.img, 0, 0);
+	window_key(win);
+ 	mlx_loop(win->mlx);
 }
 
 int	main(int argc, char** argv)
@@ -38,10 +46,7 @@ int	main(int argc, char** argv)
 		check_argument(win, argv[i + 1]);
 		initialise_window(&win[i], argv[i + 1]);
 		mlx_hook(win[i].win, KEY_DOWN, 0, handle_input, &win[i]);
-		plot_points(win);
-		mlx_put_image_to_window(win->mlx, win->win, win->img.img, 0, 0);
-		window_key(&win[i]);
- 		mlx_loop(win->mlx);
+		execute_image(&win[i]);
 		i++;
 	}
 	return (0);

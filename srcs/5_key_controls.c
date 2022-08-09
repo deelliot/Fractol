@@ -6,11 +6,24 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 10:47:17 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/08 14:39:49 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/10 00:10:37 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
+
+void	handle_iterations(t_win *win, int key)
+{
+	if (key == ITER_UP)
+		win->max_iter += 10;
+	if (key == ITER_DOWN)
+	{
+		if (win->max_iter >10)
+			win->max_iter -=10;
+	}
+	mlx_clear_window(win->mlx, win->win);
+	execute_image(win);
+}
 
 void	esc_program(t_win *win)
 {
@@ -28,6 +41,8 @@ int	handle_input(int key, t_win *win)
 	// 	handle_colour(win);
 	// if (key == RESET)
 	// 	handle_reset(win);
+	if (key == ITER_UP || key == ITER_DOWN)
+		handle_iterations(win, key);
 	if (key == ESC)
 		esc_program(win);
 	return (0);
