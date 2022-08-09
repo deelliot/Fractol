@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/08 17:09:08 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/09 14:24:06 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 /* pthreads library is needed for multithreading */
 
 /* screen height and width */
-# define WIDTH 1080
-# define HEIGHT 720
+# define WIDTH 360
+# define HEIGHT 360
 
 # define USAGE "Usage: ./fractol (Julia / Mandelbrot)"
 
@@ -52,8 +52,12 @@ typedef struct	s_complex
 {
 	double	x;
 	double	x0;
+	double	a;
 	double	y;
 	double	y0;
+	double	b;
+	double	real;
+	double	imaginary;
 }				t_complex;
 
 typedef struct s_win

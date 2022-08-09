@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 13:45:05 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/05 15:09:43 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/09 14:29:46 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ double	ft_linear_conversion(t_range old, t_range new, double x)
 		swop(&new);
 	old_range = old.max - old.min;
 	new_range = new.max - new.min;
-	temp = ((x - old.min) / old_range) * new_range;
+	temp = (((x - old.min) * new_range) / old_range) + new.min;
 	return (temp);
 }
