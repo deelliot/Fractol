@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/09 14:24:06 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/09 14:49:37 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 /* pthreads library is needed for multithreading */
 
 /* screen height and width */
-# define WIDTH 360
-# define HEIGHT 360
+# define WIDTH 1080
+# define HEIGHT 720
 
 # define USAGE "Usage: ./fractol (Julia / Mandelbrot)"
 
