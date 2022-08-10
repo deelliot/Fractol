@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:20:37 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/10 10:19:08 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/10 22:33:33 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,27 +33,43 @@ void	execute_image(t_win *win)
 
 int	main(int argc, char** argv)
 {
-	int	i;
-	t_win	win[argc];
-
-	i = 0;
+	t_win	win;
 	if (argc == 1)
 	{
 		ft_putendl(USAGE);
 		return (0);
 	}
-	while (i < argc - 1)
-	{
-		if (check_argument(win, argv[i + 1]) == -1)
-		{
-			ft_stderror(USAGE);
-			i++;
-			continue;
-		}
-		initialise_window(&win[i], argv[i + 1]);
-		mlx_hook(win[i].win, KEY_DOWN, 0, handle_input, &win[i]);
-		execute_image(&win[i]);
-		i++;
-	}
+	if (check_argument(&win, argv[1]) == -1)
+		ft_stderror(USAGE);
+	initialise_window(&win, argv[1]);
+	mlx_hook(win.win, KEY_DOWN, 0, handle_input, &win);
+	execute_image(&win);
 	return (0);
 }
+
+// int	main(int argc, char** argv)
+// {
+// 	int	i;
+// 	t_win	win[argc - 1];
+
+// 	i = 0;
+// 	if (argc == 1)
+// 	{
+// 		ft_putendl(USAGE);
+// 		return (0);
+// 	}
+// 	while (i < argc - 1)
+// 	{
+// 		if (check_argument(win, argv[i + 1]) == -1)
+// 		{
+// 			ft_stderror(USAGE);
+// 			i++;
+// 			continue;
+// 		}
+// 		initialise_window(&win[i], argv[i + 1]);
+// 		mlx_hook(win[i].win, KEY_DOWN, 0, handle_input, &win[i]);
+// 		execute_image(&win[i]);
+// 		i++;
+// 	}
+// 	return (0);
+// }

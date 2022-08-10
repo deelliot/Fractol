@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 11:03:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/10 12:05:57 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/10 12:32:15 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int mandelbrot(t_win *win, t_complex points)
 	int n;
 
 	points.x0 = ft_linear_conversion(ft_create_range(0, WIDTH),\
-			ft_create_range(-2.00, 0.47), (points.x + win->x_offset));
+		win->x_axis, (points.x + win->x_offset));
 	points.y0 = ft_linear_conversion(ft_create_range(0, HEIGHT),\
-			ft_create_range(-1.12, 1.12), (points.y + win->y_offset));
+			win->y_axis, (points.y + win->y_offset));
 	points.a = points.x0;
 	points.b = points.y0;
 	n = 0;

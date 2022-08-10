@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 15:34:31 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/09 23:54:57 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/10 22:26:57 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	img_pixel_put(t_img *img, int x, int y, int colour)
 {
-
 	char *pixel;
 	int pix;
 

@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/10 10:31:28 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/10 22:31:58 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,9 @@ typedef struct s_win
 	double		y_offset;
 	int			fractol_option;
 	int			colour;
-	t_complex	points;
+	// t_complex	points;
+	t_range		x_axis;
+	t_range		y_axis;
 }				t_win;
 
 void	handle_errors(t_win	*win);
