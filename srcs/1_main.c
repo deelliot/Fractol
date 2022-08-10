@@ -6,20 +6,21 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:20:37 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/10 00:03:27 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/10 10:19:08 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-void	check_argument(t_win *win, char *argv)
+int	check_argument(t_win *win, char *argv)
 {
 	if (ft_strcmp(argv, "Julia") == 0)
 		win->fractol_option = 0;
 	else if (ft_strcmp(argv, "Mandelbrot") == 0)
 		win->fractol_option = 1;
 	else
-		handle_errors(win, USAGE);
+		return (-1);
+	return (0);
 }
 
 void	execute_image(t_win *win)
@@ -38,12 +39,17 @@ int	main(int argc, char** argv)
 	i = 0;
 	if (argc == 1)
 	{
-		handle_errors(win, USAGE);
+		ft_putendl(USAGE);
 		return (0);
 	}
 	while (i < argc - 1)
 	{
-		check_argument(win, argv[i + 1]);
+		if (check_argument(win, argv[i + 1]) == -1)
+		{
+			ft_stderror(USAGE);
+			i++;
+			continue;
+		}
 		initialise_window(&win[i], argv[i + 1]);
 		mlx_hook(win[i].win, KEY_DOWN, 0, handle_input, &win[i]);
 		execute_image(&win[i]);

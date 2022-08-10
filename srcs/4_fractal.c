@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 11:03:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/09 23:31:17 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/10 12:05:57 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int mandelbrot(t_win *win, t_complex points)
 	int n;
 
 	points.x0 = ft_linear_conversion(ft_create_range(0, WIDTH),\
-			ft_create_range(-2.00, 2), points.x);
+			ft_create_range(-2.00, 0.47), (points.x + win->x_offset));
 	points.y0 = ft_linear_conversion(ft_create_range(0, HEIGHT),\
-			ft_create_range(-2, 2), points.y);
+			ft_create_range(-1.12, 1.12), (points.y + win->y_offset));
 	points.a = points.x0;
 	points.b = points.y0;
 	n = 0;
@@ -54,9 +54,6 @@ void	plot_points(t_win *win)
 		while (points.x < WIDTH)
 		{
 			n = mandelbrot(win, points);
-			// win->colour = 255;
-			// if (n == win->max_iter)
-			// 	win->colour = 0;
 			set_colour(win, n);
 			img_pixel_put(&win->img, points.x, points.y, win->colour);
 			points.x++;

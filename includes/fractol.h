@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/10 00:03:51 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/10 10:31:28 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,19 @@ typedef struct	s_complex
 
 typedef struct s_win
 {
-	t_img	img;
-	void	*mlx;
-	void	*win;
-	int		max_iter;
-	int		fractol_option;
-	int		colour;
+	t_img		img;
+	void		*mlx;
+	void		*win;
+	int			max_iter;
+	double		zoom;
+	double		x_offset;
+	double		y_offset;
+	int			fractol_option;
+	int			colour;
 	t_complex	points;
 }				t_win;
 
-void	handle_errors(t_win	*win, char *str);
+void	handle_errors(t_win	*win);
 void	free_win(t_win *win);
 void	initialise_window(t_win *win, char *argv);
 void	execute_image(t_win *win);
