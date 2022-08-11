@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 15:25:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/05 15:09:12 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/11 14:10:22 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_range
 {
 	double	min;
 	double	max;
+	double	median;
 }					t_range;
 
 void	*ft_memset(void *str, int c, size_t n);
@@ -113,7 +114,7 @@ void	ft_memdelarray(void **array, size_t y);
 void	ft_memdelchararray(char ***array);
 void	del(void *content, size_t content_size);
 void	ft_stderror(char const *s);
-double	ft_linear_conversion(t_range old, t_range new, double x); 
+double	ft_linear_conversion(t_range old, t_range new, double x);
 t_range ft_create_range(double min, double max);
 
 #endif

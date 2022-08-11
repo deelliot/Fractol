@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 14:49:43 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/05 15:02:26 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/11 14:11:01 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ t_range ft_create_range(double min, double max)
 
 	range.min = min;
 	range.max = max;
-
+	range.median = (max + min) / 2;
 	return (range);
 }

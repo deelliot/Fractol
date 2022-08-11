@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 10:47:17 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/11 13:45:05 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/11 14:11:35 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,9 @@ void	handle_zoom(int key, t_win *win)
 	if (key == ZOOM_IN)
 		win->zoom = 1.0/1.01;
 	else
-	{
 		win->zoom = 1.01/1.0;
-	}
-	mouse_re = -0.9765 / (WIDTH / (win->x_range.max - win->x_range.min)) + win->x_range.min;
-	mouse_im =  0;
+	mouse_re = ft_linear_conversion(win->width_range, win->x_range, win->x_range.median);
+	mouse_im = ft_linear_conversion(win->height_range, win->y_range, win->y_range.median);
 	win->x_range.max = mouse_re + ((win->x_range.max - mouse_re) * win->zoom);
 	win->x_range.min = mouse_re + ((win->x_range.min - mouse_re) * win->zoom);
 	win->y_range.max = mouse_im + ((win->y_range.max - mouse_im) * win->zoom);
