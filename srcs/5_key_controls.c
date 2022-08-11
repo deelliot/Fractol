@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 10:47:17 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/10 12:10:03 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/11 13:45:05 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,27 @@ void	handle_translation(int key, t_win *win)
 	execute_image(win);
 }
 
+void	handle_zoom(int key, t_win *win)
+{
+	double mouse_re;
+	double mouse_im;
+
+	if (key == ZOOM_IN)
+		win->zoom = 1.0/1.01;
+	else
+	{
+		win->zoom = 1.01/1.0;
+	}
+	mouse_re = -0.9765 / (WIDTH / (win->x_range.max - win->x_range.min)) + win->x_range.min;
+	mouse_im =  0;
+	win->x_range.max = mouse_re + ((win->x_range.max - mouse_re) * win->zoom);
+	win->x_range.min = mouse_re + ((win->x_range.min - mouse_re) * win->zoom);
+	win->y_range.max = mouse_im + ((win->y_range.max - mouse_im) * win->zoom);
+	win->y_range.min = mouse_im + ((win->y_range.min - mouse_im) * win->zoom);
+	mlx_clear_window(win->mlx, win->win);
+	execute_image(win);
+}
+
 void	esc_program(t_win *win)
 {
 	free_win(win);
@@ -49,8 +70,8 @@ int	handle_input(int key, t_win *win)
 {
 	if (key == UP || key == DOWN || key == LEFT || key == RIGHT)
 		handle_translation(key, win);
-	// if (key == ZOOM_IN || key == ZOOM_OUT)
-	// 	handle_zoom(key, win);
+	if (key == ZOOM_IN || key == ZOOM_OUT)
+		handle_zoom(key, win);
 	// if (key == COLOUR)
 	// 	handle_colour(win);
 	// if (key == RESET)
