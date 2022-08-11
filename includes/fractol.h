@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/11 12:40:41 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/11 17:25:11 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,13 @@ typedef struct	s_complex
 	double	imaginary;
 }				t_complex;
 
+typedef struct	s_rgb
+{
+	double	r;
+	double	g;
+	double	b;
+}				t_rgb;
+
 typedef struct s_win
 {
 	t_img		img;
@@ -74,6 +81,8 @@ typedef struct s_win
 	double		y_offset;
 	int			fractol_option;
 	int			colour;
+	t_rgb		col_start;
+	t_rgb		col_finish;
 	t_complex	points;
 	t_range		x_range;
 	t_range		width_range;
@@ -89,7 +98,9 @@ void	execute_image(t_win *win);
 int		handle_input(int key, t_win *win);
 void	plot_points(t_win *win);
 void	set_colour(t_win *win, double n);
-void	img_pixel_put(t_img *img, int x, int y, int colour);
+void	img_pixel_put(t_img *img, int x, int y, t_rgb *colour);
 void	window_key(t_win *win);
+t_rgb	hex_to_rgb(int colour);
+void	initialise_colour(t_win *win);
 
 #endif

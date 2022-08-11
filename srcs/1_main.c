@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:20:37 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/11 11:57:29 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/11 17:32:14 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	check_argument(t_win *win, char *argv)
 void	execute_image(t_win *win)
 {
 	initialise_image(&win->img, win);
+	initialise_colour(win);
 	plot_points(win);
 	mlx_put_image_to_window(win->mlx, win->win, win->img.img, 0, 0);
 	window_key(win);

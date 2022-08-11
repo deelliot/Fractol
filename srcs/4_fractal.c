@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 11:03:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/11 12:41:10 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/11 16:58:45 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	plot_points(t_win *win)
 		{
 			n = mandelbrot(win, points);
 			set_colour(win, n);
-			img_pixel_put(&win->img, points.x, points.y, win->colour);
+			img_pixel_put(&win->img, points.x, points.y, &win->col_finish);
 			points.x++;
 		}
 		points.y++;

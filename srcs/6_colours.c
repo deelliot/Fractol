@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 12:45:05 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/10 09:54:38 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/11 17:33:06 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,40 @@
 
 void	set_colour(t_win *win, double n)
 {
-		double	r;
-		double	g;
-		double	b;
-
 		if (n == win->max_iter)
-			win->colour = 0x000000;
+		{
+			win->col_finish.r = 00;
+			win->col_finish.g = 00;
+			win->col_finish.b = 00;
+		}
 		else
 		{
-			r = 6 * n;
-			b = 12 * n;
-			g = 15 * n;
-			win->colour = rgb_to_hex(r, g, b);
+			win->col_finish.r = win->col_start.r * n;
+			win->col_finish.g = win->col_start.g * n;
+			win->col_finish.b = win->col_start.b * n;
 		}
+}
 
+t_rgb	hex_to_rgb(int colour)
+{
+	t_rgb	col;
 
-		// r = ft_linear_conversion(ft_create_range(0, win->max_iter), \
-		// 	ft_create_range (0, 255), n);
-		// g = ft_linear_conversion(ft_create_range(0, win->max_iter), \
-		// 	ft_create_range (0, 255), n);
-		// b = ft_linear_conversion(ft_create_range(0, win->max_iter), \
-		// 	ft_create_range (0, 255), n);
-		// win->colour = rgb_to_hex(r, g, b);
+	col.r = (colour >> 16) & 0xFF;
+	col.g = (colour >> 8) & 0xFF;
+	col.b = colour & 0xFF;
+	return (col);
+}
+
+void	initialise_colour(t_win *win)
+{
+	if (win->colour == 0)
+		win->col_start = hex_to_rgb(0x04060F);
+	if (win->colour == 1)
+		win->col_start = hex_to_rgb(0x617EDD);
+	if (win->colour == 2)
+		win->col_start = hex_to_rgb(0xB2488C);
+	if (win->colour == 3)
+		win->col_start = hex_to_rgb(0xBDEB0A);
+	if (win->colour == 4)
+		win->col_start = hex_to_rgb(0xEAD32E);
 }
