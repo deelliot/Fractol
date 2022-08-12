@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/11 17:25:11 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/12 17:14:34 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,13 +94,21 @@ void	handle_errors(t_win	*win);
 void	free_win(t_win *win);
 void	initialise_window(t_win *win, char *argv);
 void	initialise_image(t_img *img, t_win *win);
+void	initialise_colour(t_win *win);
 void	execute_image(t_win *win);
-int		handle_input(int key, t_win *win);
 void	plot_points(t_win *win);
 void	set_colour(t_win *win, double n);
 void	img_pixel_put(t_img *img, int x, int y, t_rgb *colour);
-void	window_key(t_win *win);
 t_rgb	hex_to_rgb(int colour);
-void	initialise_colour(t_win *win);
+
+/* handle user input */
+int		handle_input(int key, t_win *win);
+void	handle_translation(int key, t_win *win);
+void	handle_zoom(int key, t_win *win);
+void	handle_colour(t_win *win);
+void	handle_iterations(int key, t_win *win);
+void	handle_reset(t_win *win);
+void	esc_program(t_win *win);
+void	window_menu(t_win *win);
 
 #endif

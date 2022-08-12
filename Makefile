@@ -6,7 +6,7 @@
 #    By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/02 14:45:22 by deelliot          #+#    #+#              #
-#    Updated: 2022/08/09 12:03:22 by deelliot         ###   ########.fr        #
+#    Updated: 2022/08/12 17:15:07 by deelliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRCS = 1_main.c
 SRCS += 2_initialise.c
 SRCS += 3_error_handling.c
 SRCS += 4_fractal.c
-SRCS += 5_key_controls.c
+SRCS += 5_handle_input_2.c
+SRCS += 5_handle_input.c
 SRCS += 6_colours.c
 SRCS += 7_image.c
 

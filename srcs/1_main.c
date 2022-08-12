@@ -6,21 +6,24 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:20:37 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/11 17:32:14 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/12 17:13:45 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-int	check_argument(t_win *win, char *argv)
+void	check_argument(t_win *win, char *argv)
 {
-	if (ft_strcmp(argv, "Julia") == 0)
+	if (ft_strcmp(argv, "Julia") == 0 || ft_strcmp(argv, "julia") == 0)
 		win->fractol_option = 0;
-	else if (ft_strcmp(argv, "Mandelbrot") == 0)
+	else if (ft_strcmp(argv, "Mandelbrot") == 0 || \
+		ft_strcmp(argv, "mandelbrot") == 0)
 		win->fractol_option = 1;
 	else
-		return (-1);
-	return (0);
+	{
+		ft_putendl(USAGE);
+		exit (1);
+	}
 }
 
 void	execute_image(t_win *win)
@@ -29,20 +32,20 @@ void	execute_image(t_win *win)
 	initialise_colour(win);
 	plot_points(win);
 	mlx_put_image_to_window(win->mlx, win->win, win->img.img, 0, 0);
-	window_key(win);
- 	mlx_loop(win->mlx);
+	window_menu(win);
+	mlx_loop(win->mlx);
 }
 
-int	main(int argc, char** argv)
+int	main(int argc, char **argv)
 {
 	t_win	win;
+
 	if (argc != 2)
 	{
 		ft_putendl(USAGE);
 		return (0);
 	}
-	if (check_argument(&win, argv[1]) == -1)
-		ft_stderror(USAGE);
+	check_argument(&win, argv[1]);
 	initialise_window(&win, argv[1]);
 	mlx_hook(win.win, KEY_DOWN, 0, handle_input, &win);
 	execute_image(&win);

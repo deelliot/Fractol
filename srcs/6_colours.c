@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 12:45:05 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/11 17:33:06 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/12 17:19:14 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,12 @@ void	initialise_colour(t_win *win)
 	if (win->colour == 0)
 		win->col_start = hex_to_rgb(0x04060F);
 	if (win->colour == 1)
-		win->col_start = hex_to_rgb(0x617EDD);
+		win->col_start = hex_to_rgb(0x060F04);
 	if (win->colour == 2)
-		win->col_start = hex_to_rgb(0xB2488C);
+		win->col_start = hex_to_rgb(0x0F0406);
 	if (win->colour == 3)
 		win->col_start = hex_to_rgb(0xBDEB0A);
 	if (win->colour == 4)
-		win->col_start = hex_to_rgb(0xEAD32E);
+		win->col_start = hex_to_rgb(0xB2488C);
+
 }

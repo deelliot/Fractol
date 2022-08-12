@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 11:03:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/11 16:58:45 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/12 17:05:35 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@
 // The real part of the complex number is represented by a displacement along
 // the x-axis and the imaginary part by a displacement along the y-axis.
 
-int mandelbrot(t_win *win, t_complex points)
+int	mandelbrot(t_win *win, t_complex points)
 {
-	int n;
+	int	n;
 
-	points.x0 = ft_linear_conversion(win->width_range,\
+	points.x0 = ft_linear_conversion(win->width_range, \
 		win->x_range, (points.x + win->x_offset));
-	points.y0 = ft_linear_conversion(win->height_range,\
+	points.y0 = ft_linear_conversion(win->height_range, \
 			win->y_range, (points.y + win->y_offset));
 	points.a = points.x0;
 	points.b = points.y0;
@@ -43,9 +43,8 @@ int mandelbrot(t_win *win, t_complex points)
 
 void	plot_points(t_win *win)
 {
-	t_complex points;
-
-	int		n;
+	t_complex	points;
+	int			n;
 
 	points.y = 0;
 	while (points.y < HEIGHT)
