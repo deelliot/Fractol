@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 17:09:59 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/12 17:13:34 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/18 14:58:10 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	handle_input(int key, t_win *win)
 	if (key == UP || key == DOWN || key == LEFT || key == RIGHT)
 		handle_translation(key, win);
 	if (key == ZOOM_IN || key == ZOOM_OUT)
-		handle_zoom(key, win);
+		handle_zoom(key, -1, -1, win);
 	if (key == COLOUR)
 		handle_colour(win);
 	if (key == ITER_UP || key == ITER_DOWN)
@@ -32,6 +32,34 @@ int	handle_input(int key, t_win *win)
 		handle_reset(win);
 	if (key == ESC)
 		esc_program(win);
+	return (0);
+}
+
+int	mouse_input(int mouse, int x, int y, t_win *win)
+{
+	if (mouse == SCROLL_UP || mouse == SCROLL_DOWN)
+		handle_zoom(mouse, x, y, win);
+	if (mouse == MOUSE_LEFT)
+	{
+		if (win->lock == 1)
+			win->lock = 0;
+		else
+			win->lock = 1;
+	}
+	return (0);
+}
+
+int	mouse_motion(int x, int y, t_win *win)
+{
+	if (win->lock == 0)
+	{
+		win->mouse_x = ft_linear_conversion(win->width_range, \
+			ft_create_range(-1, 1), (double)x);
+		win->mouse_y = ft_linear_conversion(win->height_range, \
+			ft_create_range(-1, 1), (double)y);
+		mlx_clear_window(win->mlx, win->win);
+		execute_image(win);
+	}
 	return (0);
 }
 

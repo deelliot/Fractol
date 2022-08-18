@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/12 17:14:34 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/18 14:46:32 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@
 
 /* key values */
 # define KEY_DOWN 2
+# define SCROLL_UP 4
+# define SCROLL_DOWN 5
+# define MOUSE_LEFT 1
 # define UP 13
 # define DOWN 1
 # define RIGHT 2
@@ -51,7 +54,7 @@ typedef struct s_img
 	int		endian;
 }				t_img;
 
-typedef struct	s_complex
+typedef struct s_complex
 {
 	double	x;
 	double	x0;
@@ -63,7 +66,7 @@ typedef struct	s_complex
 	double	imaginary;
 }				t_complex;
 
-typedef struct	s_rgb
+typedef struct s_rgb
 {
 	double	r;
 	double	g;
@@ -88,6 +91,9 @@ typedef struct s_win
 	t_range		width_range;
 	t_range		y_range;
 	t_range		height_range;
+	double		mouse_x;
+	double		mouse_y;
+	int			lock;
 }				t_win;
 
 void	handle_errors(t_win	*win);
@@ -103,8 +109,10 @@ t_rgb	hex_to_rgb(int colour);
 
 /* handle user input */
 int		handle_input(int key, t_win *win);
+int		mouse_input(int mouse, int x, int y, t_win *win);
+int		mouse_motion(int x, int y, t_win *win);
 void	handle_translation(int key, t_win *win);
-void	handle_zoom(int key, t_win *win);
+void	handle_zoom(int key, int x, int y, t_win *win);
 void	handle_colour(t_win *win);
 void	handle_iterations(int key, t_win *win);
 void	handle_reset(t_win *win);

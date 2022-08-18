@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:20:37 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/12 17:13:45 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/18 13:48:13 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int	main(int argc, char **argv)
 	check_argument(&win, argv[1]);
 	initialise_window(&win, argv[1]);
 	mlx_hook(win.win, KEY_DOWN, 0, handle_input, &win);
+	mlx_hook(win.win, 4, 0, mouse_input, &win);
+	mlx_hook(win.win, 6, 0, mouse_motion, &win);
 	execute_image(&win);
 	return (0);
 }

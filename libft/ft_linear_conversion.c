@@ -6,20 +6,20 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 13:45:05 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/09 14:29:46 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/12 17:22:31 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static t_range *swop(t_range *range)
+static t_range	*swop(t_range *range)
 {
 	double	temp;
 
 	temp = range->min;
 	range->min = range->max;
 	range->max = temp;
-	return(range);
+	return (range);
 }
 
 double	ft_linear_conversion(t_range old, t_range new, double x)

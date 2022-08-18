@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:36:08 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/11 17:31:57 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/18 14:48:37 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,7 @@ void	initialise_window(t_win *win, char *str)
 	win->width_range = ft_create_range(0, WIDTH);
 	win->y_range = ft_create_range(-1.12, 1.12);
 	win->height_range = ft_create_range(0, HEIGHT);
+	win->mouse_x = -0.7269;
+	win->mouse_y = 0.1889;
+	win->lock = 1;
 }
