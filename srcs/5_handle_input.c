@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 17:09:59 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/18 15:16:53 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/18 15:37:03 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,14 @@ int	mouse_input(int mouse, int x, int y, t_win *win)
 		else
 			win->lock = 1;
 	}
+	if (mouse == MOUSE_RIGHT)
+	{
+		win->fractol_option += 1;
+		if (win->fractol_option == 2)
+			win->fractol_option = 0;
+		mlx_clear_window(win->mlx, win->win);
+		execute_image(win);
+	}
 	return (0);
 }
 
@@ -65,19 +73,21 @@ int	mouse_motion(int x, int y, t_win *win)
 
 void	window_menu(t_win *win)
 {
-	char	*str[6];
+	char	*str[8];
 	int		i;
 	char	*iterations;
 
-	str[0] = "MOVE:          W, S, A, D";
-	str[1] = "ZOOM:          I and O";
-	str[2] = "COLOUR:        SPACE";
-	str[3] = "RESET:         ENTER";
-	str[4] = "ITERATIONS:    ARROW UP & DOWN";
-	str[5] = "QUIT:          ESC";
+	str[0] = "MOVE:            W, S, A, D";
+	str[1] = "ZOOM:            I and O / MOUSE SCROLL";
+	str[2] = "COLOUR:          SPACE";
+	str[3] = "RESET:           ENTER";
+	str[4] = "ITERATIONS:      ARROW UP & DOWN";
+	str[5] = "LOCK JULIA       LEFT CLICK";
+	str[6] = "CHANGE FRACTOL   RIGHT CLICK";
+	str[7] = "QUIT:            ESC";
 	i = 0;
 	iterations = ft_itoa(win->max_iter);
-	while (i < 6)
+	while (i < 8)
 	{
 		mlx_string_put(win->mlx, win->win, 20, 20 + (i * 15), 0xFFFFFF, str[i]);
 		i++;

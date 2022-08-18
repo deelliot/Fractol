@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/18 14:46:32 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/18 15:35:08 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
 # define MOUSE_LEFT 1
+# define MOUSE_RIGHT 2
 # define UP 13
 # define DOWN 1
 # define RIGHT 2
