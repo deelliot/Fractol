@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 11:03:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/18 16:34:25 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/18 17:07:57 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ int	tricorn(t_win *win, t_complex points)
 		n++;
 	}
 	return (n);
-
 }
 
 int	julia(t_win *win, double x, double y, t_complex points)

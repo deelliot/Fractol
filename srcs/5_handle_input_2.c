@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 10:47:17 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/18 17:02:46 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/18 17:06:10 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	handle_reset(t_win *win)
 	win->zoom = 0.0;
 	win->x_offset = 0.0;
 	win->y_offset = 0.0;
-	win->colour = 2;
+	win->colour = 0;
 	win->x_range = ft_create_range(-2.00, 0.47);
 	win->y_range = ft_create_range(-1.12, 1.12);
 	win->mouse_x = -0.7269;
