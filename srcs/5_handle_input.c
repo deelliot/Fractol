@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 17:09:59 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/18 14:58:10 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/18 15:16:53 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int	mouse_motion(int x, int y, t_win *win)
 	if (win->lock == 0)
 	{
 		win->mouse_x = ft_linear_conversion(win->width_range, \
-			ft_create_range(-1, 1), (double)x);
+			win->x_range, (double)x);
 		win->mouse_y = ft_linear_conversion(win->height_range, \
-			ft_create_range(-1, 1), (double)y);
+			win->y_range, (double)y);
 		mlx_clear_window(win->mlx, win->win);
 		execute_image(win);
 	}

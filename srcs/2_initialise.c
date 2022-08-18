@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:36:08 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/18 14:48:37 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/18 15:28:17 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	initialise_window(t_win *win, char *str)
 	win->zoom = 0.0;
 	win->x_offset = 0.0;
 	win->y_offset = 0.0;
-	win->colour = 0;
+	win->colour = 2;
 	win->x_range = ft_create_range(-2.00, 0.47);
 	win->width_range = ft_create_range(0, WIDTH);
 	win->y_range = ft_create_range(-1.12, 1.12);
@@ -42,4 +42,12 @@ void	initialise_window(t_win *win, char *str)
 	win->mouse_x = -0.7269;
 	win->mouse_y = 0.1889;
 	win->lock = 1;
+	if (win->fractol_option == 0)
+	{
+		win->x_offset = 320;
+		win->x_range.min = -2.47;
+		win->x_range.max = 0.63;
+		win->y_range.min = -1.38;
+		win->y_range.max = 1.43;
+	}
 }

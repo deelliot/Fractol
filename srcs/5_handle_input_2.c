@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 10:47:17 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/18 11:14:25 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/18 15:23:07 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	handle_translation(int key, t_win *win)
 		win->x_offset += 10;
 	if (key == RIGHT)
 		win->x_offset -= 10;
+	printf("x_offset = %0.f, y_offset = %0.f\n", win->x_offset, win->y_offset);
 	mlx_clear_window(win->mlx, win->win);
 	execute_image(win);
 }
@@ -47,6 +48,7 @@ void	handle_zoom(int key, int x, int y, t_win *win)
 	win->x_range.min = x_axis + ((win->x_range.min - x_axis) * win->zoom);
 	win->y_range.max = y_axis + ((win->y_range.max - y_axis) * win->zoom);
 	win->y_range.min = y_axis + ((win->y_range.min - y_axis) * win->zoom);
+	printf("x min:%f x max: %f, y min: %f, y max: %f\n",win->x_range.min, win->x_range.max, win->y_range.min, win->y_range.max);
 	mlx_clear_window(win->mlx, win->win);
 	execute_image(win);
 }
