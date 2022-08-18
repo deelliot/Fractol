@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:20:37 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/18 16:12:36 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/18 17:17:24 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	execute_image(t_win *win)
 {
 	initialise_image(&win->img, win);
 	initialise_colour(win);
+	// fractal_positions(win);
 	plot_points(win);
 	mlx_put_image_to_window(win->mlx, win->win, win->img.img, 0, 0);
 	window_menu(win);

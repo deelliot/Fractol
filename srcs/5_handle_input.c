@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 17:09:59 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/18 16:24:29 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/18 17:19:04 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int	mouse_input(int mouse, int x, int y, t_win *win)
 		if (win->fractol_option == 3)
 			win->fractol_option = 0;
 		mlx_clear_window(win->mlx, win->win);
+		fractal_positions(win);
 		execute_image(win);
 	}
 	return (0);

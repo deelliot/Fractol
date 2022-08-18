@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/18 16:14:37 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/18 17:15:32 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ void	free_win(t_win *win);
 void	initialise_window(t_win *win, char *argv);
 void	initialise_image(t_img *img, t_win *win);
 void	initialise_colour(t_win *win);
+void	fractal_positions(t_win *win);
 void	execute_image(t_win *win);
 void	plot_points(t_win *win);
 void	set_colour(t_win *win, double n);
