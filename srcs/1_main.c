@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:20:37 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/18 13:48:13 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/18 16:12:36 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	check_argument(t_win *win, char *argv)
 	else if (ft_strcmp(argv, "Mandelbrot") == 0 || \
 		ft_strcmp(argv, "mandelbrot") == 0)
 		win->fractol_option = 1;
+	else if (ft_strcmp(argv, "Tricorn") == 0 || ft_strcmp(argv, "tricorn") == 0)
+		win->fractol_option = 2;
 	else
 	{
 		ft_putendl(USAGE);

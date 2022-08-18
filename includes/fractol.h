@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/18 15:35:08 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/18 16:14:37 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define WIDTH 1080
 # define HEIGHT 720
 
-# define USAGE "Usage: ./fractol (Julia / Mandelbrot)"
+# define USAGE "Usage: ./fractol (Julia / Mandelbrot / Tricorn)"
 
 /* key values */
 # define KEY_DOWN 2

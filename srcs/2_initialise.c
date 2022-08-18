@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:36:08 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/18 15:28:17 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/18 17:03:59 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,13 @@ void	initialise_window(t_win *win, char *str)
 		win->x_range.max = 0.63;
 		win->y_range.min = -1.38;
 		win->y_range.max = 1.43;
+	}
+	if (win->fractol_option == 2)
+	{
+		win->x_offset = 210;
+		win->x_range.min = -4.4;
+		win->x_range.max = 1.4;
+		win->y_range.min = -1.6;
+		win->y_range.max = 1.76;
 	}
 }
