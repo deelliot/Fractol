@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/19 16:24:04 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/19 17:26:30 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ typedef struct s_img
 
 typedef struct s_complex
 {
-	double	x;
+	int		x;
 	double	x0;
 	double	a;
-	double	y;
+	int		y;
 	double	y0;
 	double	b;
 	double	real;

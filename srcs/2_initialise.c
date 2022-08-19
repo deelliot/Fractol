@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:36:08 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/19 16:22:25 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/19 17:01:48 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	initialise_window(t_win *win, char *str)
 	win->win = mlx_new_window(win->mlx, WIDTH, HEIGHT, str);
 	if (!win->win)
 		handle_errors(win);
-	// initialise_image(&win->img, win);
 	win->max_iter = 300;
 	win->zoom = 0.0;
 	win->x_offset = 0.0;
@@ -67,9 +66,8 @@ void	fractal_positions(t_win *win)
 	else if (win->fractol_option == 3)
 	{
 		win->max_iter = 100;
-		win->x_offset = 80;
-		win->y_offset = -90;
-		win->x_range = ft_create_range(-2.1, 1.35);
-		win->y_range = ft_create_range(-1.35, 2.1);
+		win->x_offset = 0;
+		win->x_range = ft_create_range(-2.00, 0.47);
+		win->y_range = ft_create_range(-1.12, 1.12);
 	}
 }

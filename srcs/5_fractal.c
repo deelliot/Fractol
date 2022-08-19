@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 11:03:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/19 16:14:31 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/19 17:26:04 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,9 @@ int	tricorn(t_win *win, t_complex points)
 		(points.y0 * points.y0)) < 4)
 	{
 		points.real = (points.x0 * points.x0) - (points.y0 * points.y0);
-		points.imaginary = -2 * points.x0 * points.y0;
+		points.imaginary = 2 * points.x0 * points.y0;
 		points.x0 = points.real + points.a;
-		points.y0 = points.imaginary + points.b;
+		points.y0 = -points.imaginary + points.b;
 		n++;
 	}
 	return (n);
@@ -140,3 +140,4 @@ void	*plot_points(void *thread_data)
 	}
 	pthread_exit(NULL);
 }
+

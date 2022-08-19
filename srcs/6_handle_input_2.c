@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 10:47:17 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/19 16:28:28 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/19 16:32:02 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ void	handle_zoom(int key, int x, int y, t_win *win)
 	if (y == -1)
 		y = win->height_range.median;
 	if (key == ZOOM_IN || key == SCROLL_UP)
-		win->zoom = 1.0 / 1.1;
+		win->zoom = 0.9;
 	else
-		win->zoom = 1.1 / 1.0;
+		win->zoom = 1.1;
 	x_axis = ft_linear_conversion(win->width_range, win->x_range, \
 		x + win->x_offset);
 	y_axis = ft_linear_conversion(win->height_range, win->y_range, \
