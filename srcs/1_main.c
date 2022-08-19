@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:20:37 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/18 17:17:24 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/19 16:07:09 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ void	check_argument(t_win *win, char *argv)
 		win->fractol_option = 1;
 	else if (ft_strcmp(argv, "Tricorn") == 0 || ft_strcmp(argv, "tricorn") == 0)
 		win->fractol_option = 2;
+	else if (ft_strcmp(argv, "BurningShip") == 0 || \
+		ft_strcmp(argv, "burningship") == 0)
+		win->fractol_option = 3;
 	else
 	{
 		ft_putendl(USAGE);
@@ -32,9 +35,7 @@ void	execute_image(t_win *win)
 {
 	initialise_image(&win->img, win);
 	initialise_colour(win);
-	// fractal_positions(win);
-	plot_points(win);
-	mlx_put_image_to_window(win->mlx, win->win, win->img.img, 0, 0);
+	create_threads(win);
 	window_menu(win);
 	mlx_loop(win->mlx);
 }

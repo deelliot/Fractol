@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/18 17:15:32 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/19 16:24:04 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define USAGE "Usage: ./fractol (Julia / Mandelbrot / Tricorn)"
 
 /* key values */
+# define MAX_THREADS 32
 # define KEY_DOWN 2
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
@@ -97,6 +98,14 @@ typedef struct s_win
 	int			lock;
 }				t_win;
 
+typedef struct s_thread
+{
+	int		start;
+	int		end;
+	t_win	*win;
+}				t_thread;
+
+
 void	handle_errors(t_win	*win);
 void	free_win(t_win *win);
 void	initialise_window(t_win *win, char *argv);
@@ -104,7 +113,8 @@ void	initialise_image(t_img *img, t_win *win);
 void	initialise_colour(t_win *win);
 void	fractal_positions(t_win *win);
 void	execute_image(t_win *win);
-void	plot_points(t_win *win);
+void	*plot_points(void *thread_data);
+void	create_threads(t_win *win);
 void	set_colour(t_win *win, double n);
 void	img_pixel_put(t_img *img, int x, int y, t_rgb *colour);
 t_rgb	hex_to_rgb(int colour);

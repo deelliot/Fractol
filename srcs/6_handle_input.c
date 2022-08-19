@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 17:09:59 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/18 17:19:04 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/19 12:51:57 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	mouse_input(int mouse, int x, int y, t_win *win)
 	if (mouse == MOUSE_RIGHT)
 	{
 		win->fractol_option += 1;
-		if (win->fractol_option == 3)
+		if (win->fractol_option == 4)
 			win->fractol_option = 0;
 		mlx_clear_window(win->mlx, win->win);
 		fractal_positions(win);

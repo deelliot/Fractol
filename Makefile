@@ -6,7 +6,7 @@
 #    By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/02 14:45:22 by deelliot          #+#    #+#              #
-#    Updated: 2022/08/12 17:15:07 by deelliot         ###   ########.fr        #
+#    Updated: 2022/08/19 15:44:53 by deelliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,11 +25,12 @@ MINILBX_DIR = ./minilibx/
 SRCS = 1_main.c
 SRCS += 2_initialise.c
 SRCS += 3_error_handling.c
-SRCS += 4_fractal.c
-SRCS += 5_handle_input_2.c
-SRCS += 5_handle_input.c
-SRCS += 6_colours.c
+SRCS += 4_threads.c
+SRCS += 5_fractal.c
+SRCS += 6_handle_input_2.c
+SRCS += 6_handle_input.c
 SRCS += 7_image.c
+SRCS += 8_colours.c
 
 OBJ_FILES = $(SRCS:.c=.o)
 

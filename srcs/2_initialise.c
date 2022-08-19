@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:36:08 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/18 17:17:20 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/19 16:22:25 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	initialise_window(t_win *win, char *str)
 	win->win = mlx_new_window(win->mlx, WIDTH, HEIGHT, str);
 	if (!win->win)
 		handle_errors(win);
-	initialise_image(&win->img, win);
+	// initialise_image(&win->img, win);
 	win->max_iter = 300;
 	win->zoom = 0.0;
 	win->x_offset = 0.0;
@@ -45,12 +45,12 @@ void	initialise_window(t_win *win, char *str)
 
 void	fractal_positions(t_win *win)
 {
-		if (win->fractol_option == 0)
+	if (win->fractol_option == 0)
 	{
+		win->max_iter = 300;
 		win->x_offset = 320;
 		win->x_range = ft_create_range(-2.47, 0.63);
 		win->y_range = ft_create_range(-1.38, 1.43);
-
 	}
 	else if (win->fractol_option == 1)
 	{
@@ -63,5 +63,13 @@ void	fractal_positions(t_win *win)
 		win->x_offset = 210;
 		win->x_range = ft_create_range(-4.4, 1.4);
 		win->y_range = ft_create_range(-1.6, 1.76);
+	}
+	else if (win->fractol_option == 3)
+	{
+		win->max_iter = 100;
+		win->x_offset = 80;
+		win->y_offset = -90;
+		win->x_range = ft_create_range(-2.1, 1.35);
+		win->y_range = ft_create_range(-1.35, 2.1);
 	}
 }
