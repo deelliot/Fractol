@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 11:03:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/21 13:24:23 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/21 14:46:44 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int	julia(t_win *win, int x, int y)
 	c.real = win->mouse_x;
 	c.imag = win->mouse_y;
 	n = 0;
-	while (n < win->max_iter && ft_abs((z.real * z.real) + \
-		(z.imag * z.imag)) < 4)
+	while (n < win->max_iter && (z.real * z.real) + \
+		(z.imag * z.imag) < 4)
 	{
 		temp = (z.real * z.real) - (z.imag * z.imag);
 		z.imag = (2 * z.real * z.imag) + c.imag;
@@ -58,8 +58,8 @@ int	mandelbrot(t_win *win, int x, int y)
 	c.imag = ft_linear_conversion(win->height_range, win->y_range, \
 		y + win->y_offset);
 	n = 0;
-	while (n < win->max_iter && ft_abs((z.real * z.real) + \
-		(z.imag * z.imag)) < 4)
+	while (n < win->max_iter && (z.real * z.real) + \
+		(z.imag * z.imag) < 4)
 	{
 		temp = (z.real * z.real) - (z.imag * z.imag);
 		z.imag = (2 * z.real * z.imag) + c.imag;
@@ -83,8 +83,8 @@ int	tricorn(t_win *win, int x, int y)
 	c.imag = ft_linear_conversion(win->height_range, win->y_range, \
 		y + win->y_offset);
 	n = 0;
-	while (n < win->max_iter && ft_abs((z.real * z.real) + \
-		(z.imag * z.imag)) < 4)
+	while (n < win->max_iter && (z.real * z.real) + \
+		(z.imag * z.imag) < 4)
 	{
 		temp = (z.real * z.real) - (z.imag * z.imag);
 		z.imag = -(2 * z.real * z.imag) + c.imag;
@@ -108,12 +108,12 @@ int	burningship(t_win *win, int x, int y)
 	c.imag = ft_linear_conversion(win->height_range, win->y_range, \
 		y + win->y_offset);
 	n = 0;
-	while (n < win->max_iter && ft_abs((z.real * z.real) + \
-		(z.imag * z.imag)) < 4)
+	while (n < win->max_iter && (z.real * z.real) + \
+		(z.imag * z.imag) < 4)
 	{
-		temp = (z.real * z.real) - (z.imag * z.imag);
-		z.imag = ft_abs((2 * z.real * z.imag) + c.imag);
-		z.real = temp + c.real;
+		temp = (z.real * z.real) - (z.imag * z.imag) + c.real;
+		z.imag = ft_abs((2 * z.real * z.imag)) + c.imag;
+		z.real = temp;
 		n++;
 	}
 	return (n);

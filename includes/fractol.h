@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/21 13:25:17 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/21 14:21:40 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@
 /* pthreads library is needed for multithreading */
 
 /* screen height and width */
-# define WIDTH 1080
-# define HEIGHT 720
+# define WIDTH 1920
+# define HEIGHT 1200
 
 # define USAGE "Usage: ./fractol (Julia / Mandelbrot / Tricorn)"
 
 /* key values */
-# define MAX_THREADS 8
+# define MAX_THREADS 12
 # define KEY_DOWN 2
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
