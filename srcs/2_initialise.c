@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:36:08 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/19 17:01:48 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/21 12:59:55 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	fractal_positions(t_win *win)
 	else if (win->fractol_option == 3)
 	{
 		win->max_iter = 100;
-		win->x_offset = 0;
+		win->x_offset = -68;
 		win->x_range = ft_create_range(-2.00, 0.47);
 		win->y_range = ft_create_range(-1.12, 1.12);
 	}

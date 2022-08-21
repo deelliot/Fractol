@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   5_handle_input.c                                   :+:      :+:    :+:   */
+/*   6_handle_input.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 17:09:59 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/19 12:51:57 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/21 08:31:16 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,5 @@ void	window_menu(t_win *win)
 		i++;
 	}
 	mlx_string_put(win->mlx, win->win, 1040, 20, 0xFFFFFF, iterations);
+	free (iterations);
 }

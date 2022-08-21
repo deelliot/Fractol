@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 11:03:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/19 17:26:04 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/21 13:24:23 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,93 +19,101 @@
 // The real part of the complex number is represented by a displacement along
 // the x-axis and the imaginary part by a displacement along the y-axis.
 
-int	julia(t_win *win, double x, double y, t_complex points)
+int	julia(t_win *win, int x, int y)
 {
-	int	n;
+	t_complex	z;
+	t_complex	c;
+	double		temp;
+	int			n;
 
-	points.x0 = ft_linear_conversion(win->width_range, \
-		win->x_range, (points.x + win->x_offset));
-	points.y0 = ft_linear_conversion(win->height_range, \
-			win->y_range, (points.y + win->y_offset));
-	points.a = points.x0;
-	points.b = points.y0;
+	z.real = ft_linear_conversion(win->width_range, win->x_range, \
+		x + win->x_offset);
+	z.imag = ft_linear_conversion(win->height_range, win->y_range, \
+		y + win->y_offset);
+	c.real = win->mouse_x;
+	c.imag = win->mouse_y;
 	n = 0;
-	while (n < win->max_iter && ft_abs((points.x0 * points.x0) + \
-		(points.y0 * points.y0)) < 4)
+	while (n < win->max_iter && ft_abs((z.real * z.real) + \
+		(z.imag * z.imag)) < 4)
 	{
-		points.real = (points.x0 * points.x0) - (points.y0 * points.y0);
-		points.imaginary = 2 * points.x0 * points.y0;
-		points.x0 = points.real + x;
-		points.y0 = points.imaginary + y;
+		temp = (z.real * z.real) - (z.imag * z.imag);
+		z.imag = (2 * z.real * z.imag) + c.imag;
+		z.real = temp + c.real;
 		n++;
 	}
 	return (n);
 }
 
-int	mandelbrot(t_win *win, t_complex points)
+int	mandelbrot(t_win *win, int x, int y)
 {
-	int	n;
+	t_complex	z;
+	t_complex	c;
+	double		temp;
+	int			n;
 
-	points.x0 = ft_linear_conversion(win->width_range, \
-		win->x_range, (points.x + win->x_offset));
-	points.y0 = ft_linear_conversion(win->height_range, \
-			win->y_range, (points.y + win->y_offset));
-	points.a = points.x0;
-	points.b = points.y0;
+	z.real = 0;
+	z.imag = 0;
+	c.real = ft_linear_conversion(win->width_range, win->x_range, \
+		x + win->x_offset);
+	c.imag = ft_linear_conversion(win->height_range, win->y_range, \
+		y + win->y_offset);
 	n = 0;
-	while (n < win->max_iter && ft_abs((points.x0 * points.x0) + \
-		(points.y0 * points.y0)) < 4)
+	while (n < win->max_iter && ft_abs((z.real * z.real) + \
+		(z.imag * z.imag)) < 4)
 	{
-		points.real = (points.x0 * points.x0) - (points.y0 * points.y0);
-		points.imaginary = 2 * points.x0 * points.y0;
-		points.x0 = points.real + points.a;
-		points.y0 = points.imaginary + points.b;
+		temp = (z.real * z.real) - (z.imag * z.imag);
+		z.imag = (2 * z.real * z.imag) + c.imag;
+		z.real = temp + c.real;
 		n++;
 	}
 	return (n);
 }
 
-int	tricorn(t_win *win, t_complex points)
+int	tricorn(t_win *win, int x, int y)
 {
-	int	n;
+	t_complex	z;
+	t_complex	c;
+	double		temp;
+	int			n;
 
-	points.x0 = ft_linear_conversion(win->width_range, \
-		win->x_range, (points.x + win->x_offset));
-	points.y0 = ft_linear_conversion(win->height_range, \
-			win->y_range, (points.y + win->y_offset));
-	points.a = points.x0;
-	points.b = points.y0;
+	z.real = 0;
+	z.imag = 0;
+	c.real = ft_linear_conversion(win->width_range, win->x_range, \
+		x + win->x_offset);
+	c.imag = ft_linear_conversion(win->height_range, win->y_range, \
+		y + win->y_offset);
 	n = 0;
-	while (n < win->max_iter && ft_abs((points.x0 * points.x0) + \
-		(points.y0 * points.y0)) < 4)
+	while (n < win->max_iter && ft_abs((z.real * z.real) + \
+		(z.imag * z.imag)) < 4)
 	{
-		points.real = (points.x0 * points.x0) - (points.y0 * points.y0);
-		points.imaginary = 2 * points.x0 * points.y0;
-		points.x0 = points.real + points.a;
-		points.y0 = -points.imaginary + points.b;
+		temp = (z.real * z.real) - (z.imag * z.imag);
+		z.imag = -(2 * z.real * z.imag) + c.imag;
+		z.real = temp + c.real;
 		n++;
 	}
 	return (n);
 }
 
-int	burning_ship(t_win *win, t_complex points)
+int	burningship(t_win *win, int x, int y)
 {
-	int	n;
+	t_complex	z;
+	t_complex	c;
+	double		temp;
+	int			n;
 
-	points.x0 = ft_linear_conversion(win->width_range, \
-		win->x_range, (points.x + win->x_offset));
-	points.y0 = ft_linear_conversion(win->height_range, \
-			win->y_range, (points.y + win->y_offset));
-	points.a = points.x0;
-	points.b = points.y0;
+	z.real = 0;
+	z.imag = 0;
+	c.real = ft_linear_conversion(win->width_range, win->x_range, \
+		x + win->x_offset);
+	c.imag = ft_linear_conversion(win->height_range, win->y_range, \
+		y + win->y_offset);
 	n = 0;
-	while (n < win->max_iter && points.x0 * points.x0 + \
-		points.y0 * points.y0 < 4)
+	while (n < win->max_iter && ft_abs((z.real * z.real) + \
+		(z.imag * z.imag)) < 4)
 	{
-		points.real = (points.x0 * points.x0) - (points.y0 * points.y0);
-		points.imaginary = ft_abs(2 * points.x0 * points.y0);
-		points.x0 = (points.real + points.a);
-		points.y0 = points.imaginary + points.b;
+		temp = (z.real * z.real) - (z.imag * z.imag);
+		z.imag = ft_abs((2 * z.real * z.imag) + c.imag);
+		z.real = temp + c.real;
 		n++;
 	}
 	return (n);
@@ -113,31 +121,29 @@ int	burning_ship(t_win *win, t_complex points)
 
 void	*plot_points(void *thread_data)
 {
-	t_complex	points;
+	int			x;
+	int			y;
 	t_thread	*thread;
 	int			n;
 
 	thread = (t_thread *)thread_data;
-	points.y = 0;
-	while (points.y < HEIGHT)
+	y = -1;
+	while (++y < HEIGHT)
 	{
-		points.x = thread->start;
-		while (points.x < thread->end)
+		x = thread->start - 1;
+		while (++x < thread->end)
 		{
 			if (thread->win->fractol_option == 0)
-				n = julia(thread->win, thread->win->mouse_x, thread->win->mouse_y, points);
+				n = julia(thread->win, x, y);
 			else if (thread->win->fractol_option == 1)
-				n = mandelbrot(thread->win, points);
+				n = mandelbrot(thread->win, x, y);
 			else if (thread->win->fractol_option == 2)
-				n = tricorn(thread->win, points);
+				n = tricorn(thread->win, x, y);
 			else
-				n = burning_ship(thread->win, points);
+				n = burningship(thread->win, x, y);
 			set_colour(thread->win, n);
-			img_pixel_put(&thread->win->img, points.x, points.y, &thread->win->col_finish);
-			points.x++;
+			img_pixel_put(&thread->win->img, x, y, &thread->win->col_finish);
 		}
-		points.y++;
 	}
 	pthread_exit(NULL);
 }
-

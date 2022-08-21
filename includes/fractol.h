@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/19 17:26:30 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/21 13:25:17 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define USAGE "Usage: ./fractol (Julia / Mandelbrot / Tricorn)"
 
 /* key values */
-# define MAX_THREADS 32
+# define MAX_THREADS 8
 # define KEY_DOWN 2
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
@@ -65,7 +65,7 @@ typedef struct s_complex
 	double	y0;
 	double	b;
 	double	real;
-	double	imaginary;
+	double	imag;
 }				t_complex;
 
 typedef struct s_rgb
@@ -104,7 +104,6 @@ typedef struct s_thread
 	int		end;
 	t_win	*win;
 }				t_thread;
-
 
 void	handle_errors(t_win	*win);
 void	free_win(t_win *win);
