@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 16:37:05 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/05 13:38:45 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/22 17:33:57 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ double	normalise_data(double min, double max, double num)
 {
 	double	temp;
 
-	temp = (num - min) / (max - min);
+	temp = (num - min) / (max - min) * 100;
 	return (temp);
 }

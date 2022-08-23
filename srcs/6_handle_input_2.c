@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 10:47:17 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/22 14:08:44 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/23 12:09:00 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	handle_translation(int key, t_win *win)
 {
-	int inc;
+	int	inc;
+
 	if (win->fractol_option == 4)
 		inc = 1;
 	else
 		inc = 10;
-
 	if (key == UP)
 		win->y_offset += inc;
 	if (key == DOWN)

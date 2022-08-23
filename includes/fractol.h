@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/21 14:21:40 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/23 12:01:56 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 /* pthreads library is needed for multithreading */
 
 /* screen height and width */
-# define WIDTH 1920
-# define HEIGHT 1200
+# define WIDTH 1080
+# define HEIGHT 720
 
 # define USAGE "Usage: ./fractol (Julia / Mandelbrot / Tricorn)"
 
@@ -58,15 +58,16 @@ typedef struct s_img
 
 typedef struct s_complex
 {
-	int		x;
-	double	x0;
-	double	a;
-	int		y;
-	double	y0;
-	double	b;
 	double	real;
 	double	imag;
 }				t_complex;
+
+typedef struct s_point
+{
+	double	x;
+	double	y;
+}				t_point;
+
 
 typedef struct s_rgb
 {
@@ -129,5 +130,6 @@ void	handle_iterations(int key, t_win *win);
 void	handle_reset(t_win *win);
 void	esc_program(t_win *win);
 void	window_menu(t_win *win);
+void	barnsley_fern(t_win *win);
 
 #endif
