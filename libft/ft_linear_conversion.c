@@ -6,12 +6,11 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 13:45:05 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/22 13:28:18 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/23 16:02:35 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 double	ft_linear_conversion(t_range old, t_range new, double x)
 {

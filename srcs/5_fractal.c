@@ -6,20 +6,19 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 11:03:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/22 16:29:12 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/23 16:03:03 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-#include <stdio.h>
 
-// f[{x, y}] = {(a^2 - b^2) + c1}, {2xy + c2}
+/* f[{x, y}] = {(a^2 - b^2) + c1}, {2xy + c2}
 
-// A complex number () can be represented on a complex plane.
-// The real part of the complex number is represented by a displacement along
-// the x-axis and the imaginary part by a displacement along the y-axis.
+/* A complex number () can be represented on a complex plane.
+/* The real part of the complex number is represented by a displacement along
+/* the x-axis and the imaginary part by a displacement along the y-axis. */
 
-int	julia(t_win *win, int x, int y)
+static int	julia(t_win *win, int x, int y)
 {
 	t_complex	z;
 	t_complex	c;
@@ -44,7 +43,7 @@ int	julia(t_win *win, int x, int y)
 	return (n);
 }
 
-int	mandelbrot(t_win *win, int x, int y)
+static int	mandelbrot(t_win *win, int x, int y)
 {
 	t_complex	z;
 	t_complex	c;
@@ -69,7 +68,7 @@ int	mandelbrot(t_win *win, int x, int y)
 	return (n);
 }
 
-int	tricorn(t_win *win, int x, int y)
+static int	tricorn(t_win *win, int x, int y)
 {
 	t_complex	z;
 	t_complex	c;
@@ -94,7 +93,7 @@ int	tricorn(t_win *win, int x, int y)
 	return (n);
 }
 
-int	burningship(t_win *win, int x, int y)
+static int	burningship(t_win *win, int x, int y)
 {
 	t_complex	z;
 	t_complex	c;

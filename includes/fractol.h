@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/23 12:01:56 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/23 16:00:47 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include "../minilibx/mlx.h"
 # include <math.h>
 # include <pthread.h>
-# include <stdio.h>
 
 /* pthreads library is needed for multithreading */
 
@@ -26,7 +25,8 @@
 # define WIDTH 1080
 # define HEIGHT 720
 
-# define USAGE "Usage: ./fractol (Julia / Mandelbrot / Tricorn)"
+# define USAGE "Usage: ./fractol (Julia / Mandelbrot / Tricorn / Burning_Ship \
+/ Barnsley_Fern)"
 
 /* key values */
 # define MAX_THREADS 12
@@ -68,7 +68,6 @@ typedef struct s_point
 	double	y;
 }				t_point;
 
-
 typedef struct s_rgb
 {
 	double	r;
@@ -89,7 +88,6 @@ typedef struct s_win
 	int			colour;
 	t_rgb		col_start;
 	t_rgb		col_finish;
-	t_complex	points;
 	t_range		x_range;
 	t_range		width_range;
 	t_range		y_range;
@@ -109,15 +107,21 @@ typedef struct s_thread
 void	handle_errors(t_win	*win);
 void	free_win(t_win *win);
 void	initialise_window(t_win *win, char *argv);
+void	fractal_positions(t_win *win);
+
+/* execute image */
+void	execute_image(t_win *win);
 void	initialise_image(t_img *img, t_win *win);
 void	initialise_colour(t_win *win);
-void	fractal_positions(t_win *win);
-void	execute_image(t_win *win);
-void	*plot_points(void *thread_data);
 void	create_threads(t_win *win);
+void	window_menu(t_win *win);
+
+/* colour and draw functions */
 void	set_colour(t_win *win, double n);
-void	img_pixel_put(t_img *img, int x, int y, t_rgb *colour);
 t_rgb	hex_to_rgb(int colour);
+void	*plot_points(void *thread_data);
+void	barnsley_fern(t_win *win);
+void	img_pixel_put(t_img *img, int x, int y, t_rgb *colour);
 
 /* handle user input */
 int		handle_input(int key, t_win *win);
@@ -129,7 +133,5 @@ void	handle_colour(t_win *win);
 void	handle_iterations(int key, t_win *win);
 void	handle_reset(t_win *win);
 void	esc_program(t_win *win);
-void	window_menu(t_win *win);
-void	barnsley_fern(t_win *win);
 
 #endif

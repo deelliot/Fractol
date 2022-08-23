@@ -6,7 +6,7 @@
 #    By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/02 14:45:22 by deelliot          #+#    #+#              #
-#    Updated: 2022/08/22 13:36:00 by deelliot         ###   ########.fr        #
+#    Updated: 2022/08/23 12:50:37 by deelliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,6 +73,9 @@ $(NAME): $(OBJ)
 	@echo "Usage: ./fractol + option"
 	@echo "options: >> Julia / J"
 	@echo "options: >> Mandelbrot / M"
+	@echo "options: >> Tricorn / T"
+	@echo "options: >> Burning_Ship / B"
+	@echo "options: >> Barnsley_Fern / BF"
 
 clean:
 	@rm -Rf $(OBJ_DIR)
