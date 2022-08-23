@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 00:08:19 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/23 12:07:25 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/23 12:36:41 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	barnsley_fern(t_win *win)
 
 	coords.x = 0;
 	coords.y = 0;
-	win->col_finish = hex_to_rgb(0xFFFF72);
+	win->col_finish = hex_to_rgb(0x4F7942);
 	i = 0;
 	while (i < win->max_iter)
 	{
