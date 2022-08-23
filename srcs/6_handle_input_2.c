@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 10:47:17 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/19 16:32:02 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/22 14:08:44 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,20 @@
 
 void	handle_translation(int key, t_win *win)
 {
+	int inc;
+	if (win->fractol_option == 4)
+		inc = 1;
+	else
+		inc = 10;
+
 	if (key == UP)
-		win->y_offset += 10;
+		win->y_offset += inc;
 	if (key == DOWN)
-		win->y_offset -= 10;
+		win->y_offset -= inc;
 	if (key == LEFT)
-		win->x_offset += 10;
+		win->x_offset += inc;
 	if (key == RIGHT)
-		win->x_offset -= 10;
+		win->x_offset -= inc;
 	mlx_clear_window(win->mlx, win->win);
 	execute_image(win);
 }

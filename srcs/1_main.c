@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:20:37 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/19 16:07:09 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/22 12:02:55 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ void	check_argument(t_win *win, char *argv)
 	else if (ft_strcmp(argv, "BurningShip") == 0 || \
 		ft_strcmp(argv, "burningship") == 0)
 		win->fractol_option = 3;
+	else if ((ft_strcmp(argv, "Barnsley_Fern") == 0 || \
+		ft_strcmp(argv, "barnsley_fern") == 0))
+			win->fractol_option = 4;
 	else
 	{
 		ft_putendl(USAGE);
@@ -35,7 +38,10 @@ void	execute_image(t_win *win)
 {
 	initialise_image(&win->img, win);
 	initialise_colour(win);
-	create_threads(win);
+	if (win->fractol_option == 4)
+		barnsley_fern(win);
+	else
+		create_threads(win);
 	window_menu(win);
 	mlx_loop(win->mlx);
 }
