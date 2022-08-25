@@ -6,17 +6,19 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 11:03:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/23 16:03:03 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/25 07:40:49 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-/* f[{x, y}] = {(a^2 - b^2) + c1}, {2xy + c2}
+/* f(z) = (z * z) + c, where c = a + bi.
 
-/* A complex number () can be represented on a complex plane.
-/* The real part of the complex number is represented by a displacement along
-/* the x-axis and the imaginary part by a displacement along the y-axis. */
+ f[{x, y}] = {(a^2 - b^2) + c1}, {2xy + c2}
+
+A complex number () can be represented on a complex plane.
+The real part of the complex number is represented by a displacement along
+the x-axis and the imaginary part by a displacement along the y-axis. */
 
 static int	julia(t_win *win, int x, int y)
 {
