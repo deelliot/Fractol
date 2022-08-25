@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/25 13:10:31 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/25 14:30:51 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define FRACTOL_H
 
 # include "../libft/libft.h"
-# include "mlx.h"
+# include "../minilibx/mlx.h"
+// # include "mlx.h"
 # include <math.h>
 # include <pthread.h>
 
@@ -28,7 +29,7 @@
 / Barnsley_Fern)"
 
 /* key values */
-# define MAX_THREADS 32
+# define MAX_THREADS 12
 # define KEY_DOWN 2
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
@@ -119,6 +120,7 @@ void	window_menu(t_win *win);
 void	set_colour(t_win *win, double n);
 t_rgb	hex_to_rgb(int colour);
 void	*plot_points(void *thread_data);
+// void	plot_points(t_win *win);
 void	barnsley_fern(t_win *win);
 void	img_pixel_put(t_img *img, int x, int y, t_rgb *colour);
 

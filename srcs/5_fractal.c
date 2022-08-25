@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 11:03:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/25 12:37:49 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/25 14:24:22 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,10 @@ static int	burningship(t_win *win, int x, int y)
 	while (n < win->max_iter && (z.real * z.real) + \
 		(z.imag * z.imag) < 4)
 	{
+		z.real = fabs(z.real);
+		z.imag = fabs(z.imag);
 		temp = (z.real * z.real) - (z.imag * z.imag);
-		z.imag = 2 * fabs(z.real * z.imag) + c.imag;
+		z.imag = 2 * z.real * z.imag + c.imag;
 		z.real = temp + c.real;
 		n++;
 	}
@@ -131,7 +133,7 @@ void	*plot_points(void *thread_data)
 	y = -1;
 	while (++y < HEIGHT)
 	{
-		x = thread->start - 1;
+		x = (thread->start) - 1;
 		while (++x < thread->end)
 		{
 			if (thread->win->fractol_option == 0)
@@ -146,5 +148,32 @@ void	*plot_points(void *thread_data)
 			img_pixel_put(&thread->win->img, x, y, &thread->win->col_finish);
 		}
 	}
-	pthread_exit(NULL);
+	return (NULL);
 }
+
+// void	plot_points(t_win *win)
+// {
+// 	int			x;
+// 	int			y;
+// 	int			n;
+
+// 	y = -1;
+// 	while (++y < HEIGHT)
+// 	{
+// 		x = -1;
+// 		while (++x < WIDTH)
+// 		{
+// 			if (win->fractol_option == 0)
+// 				n = julia(win, x, y);
+// 			else if (win->fractol_option == 1)
+// 				n = mandelbrot(win, x, y);
+// 			else if (win->fractol_option == 2)
+// 				n = tricorn(win, x, y);
+// 			else
+// 				n = burningship(win, x, y);
+// 			set_colour(win, n);
+// 			img_pixel_put(&win->img, x, y, &win->col_finish);
+// 		}
+// 	}
+// 	mlx_put_image_to_window(win->mlx, win->win, win->img.img, 0, 0);
+// }
