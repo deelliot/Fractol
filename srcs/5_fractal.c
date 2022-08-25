@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 11:03:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/25 12:21:18 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/25 12:37:49 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,9 +112,9 @@ static int	burningship(t_win *win, int x, int y)
 	while (n < win->max_iter && (z.real * z.real) + \
 		(z.imag * z.imag) < 4)
 	{
-		temp = (z.real * z.real) - (z.imag * z.imag) + c.real;
-		z.imag = ft_abs((2 * z.real * z.imag)) + c.imag;
-		z.real = temp;
+		temp = (z.real * z.real) - (z.imag * z.imag);
+		z.imag = 2 * fabs(z.real * z.imag) + c.imag;
+		z.real = temp + c.real;
 		n++;
 	}
 	return (n);

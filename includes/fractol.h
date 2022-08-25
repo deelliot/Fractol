@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/23 16:00:47 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/25 11:44:45 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 / Barnsley_Fern)"
 
 /* key values */
-# define MAX_THREADS 12
+# define MAX_THREADS 32
 # define KEY_DOWN 2
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
