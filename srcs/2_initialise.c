@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:36:08 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/25 12:41:07 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/25 12:54:51 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,10 @@ void	fractal_positions(t_win *win)
 		win->y_offset = -170;
 	}
 	else
+	{
 		win->x_offset = 0;
 		win->y_offset = 0;
 		win->max_iter = 1000000;
+	}
 	reset_range(win);
 }
