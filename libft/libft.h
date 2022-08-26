@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 15:25:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/12 17:21:04 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/26 10:34:49 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@ typedef struct s_range
 	double	max;
 	double	median;
 }					t_range;
+
+typedef struct s_rgb
+{
+	double	r;
+	double	g;
+	double	b;
+}				t_rgb;
 
 void	*ft_memset(void *str, int c, size_t n);
 void	ft_bzero(void *str, size_t n);
@@ -110,6 +117,7 @@ int		ft_count_words(char const *s, char c);
 char	*ft_strrev(char *str);
 double	normalise_data(double min, double max, double num);
 int		rgb_to_hex(int red, int green, int blue);
+t_rgb	hex_to_rgb(int colour);
 void	ft_memdelarray(void **array, size_t y);
 void	ft_memdelchararray(char ***array);
 void	del(void *content, size_t content_size);

@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 00:08:19 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/23 13:56:27 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/26 10:40:30 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_point	next_point(double x, double y, double random)
 	return (temp);
 }
 
-void	draw_point(double x, double y, t_win *win)
+void	draw_point(double x, double y, t_win *win, double random)
 {
 	double	px;
 	double	py;
@@ -48,7 +48,7 @@ void	draw_point(double x, double y, t_win *win)
 		(x + win->x_offset));
 	py = ft_linear_conversion(win->y_range, ft_create_range(HEIGHT, 0), \
 		(y + win->y_offset));
-	img_pixel_put(&win->img, px, py, &win->col_finish);
+	img_pixel_put(random, px, py, win);
 }
 
 void	barnsley_fern(t_win *win)
@@ -56,6 +56,7 @@ void	barnsley_fern(t_win *win)
 	int		i;
 	t_point	coords;
 	double	random;
+	int		n;
 
 	coords.x = 0;
 	coords.y = 0;
@@ -64,7 +65,8 @@ void	barnsley_fern(t_win *win)
 	while (i < win->max_iter)
 	{
 		random = (double)rand() / RAND_MAX;
-		draw_point(coords.x, coords.y, win);
+		n = rand() % (25 - 1 + 1) + 1;
+		draw_point(coords.x, coords.y, win, n);
 		coords = next_point(coords.x, coords.y, random);
 		i++;
 	}

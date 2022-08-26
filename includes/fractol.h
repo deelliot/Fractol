@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/25 14:30:51 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/26 10:34:36 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,6 @@ typedef struct s_point
 	double	y;
 }				t_point;
 
-typedef struct s_rgb
-{
-	double	r;
-	double	g;
-	double	b;
-}				t_rgb;
-
 typedef struct s_win
 {
 	t_img		img;
@@ -113,16 +106,13 @@ void	fractal_positions(t_win *win);
 void	execute_image(t_win *win);
 void	initialise_image(t_img *img, t_win *win);
 void	initialise_colour(t_win *win);
-void	create_threads(t_win *win);
+void	initialise_threads(t_win *win);
 void	window_menu(t_win *win);
 
-/* colour and draw functions */
-void	set_colour(t_win *win, double n);
-t_rgb	hex_to_rgb(int colour);
+/* draw functions */
 void	*plot_points(void *thread_data);
-// void	plot_points(t_win *win);
 void	barnsley_fern(t_win *win);
-void	img_pixel_put(t_img *img, int x, int y, t_rgb *colour);
+void	img_pixel_put(int n, int x, int y, t_win *win);
 
 /* handle user input */
 int		handle_input(int key, t_win *win);

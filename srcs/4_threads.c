@@ -6,13 +6,13 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 15:45:17 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/25 14:30:09 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/26 09:56:40 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-void	create_threads(t_win *win)
+void	initialise_threads(t_win *win)
 {
 	int			i;
 	pthread_t	thread_num[MAX_THREADS];

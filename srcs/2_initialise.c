@@ -6,11 +6,25 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:36:08 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/25 12:54:51 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/26 10:36:43 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
+
+void	initialise_colour(t_win *win)
+{
+	if (win->colour == 0)
+		win->col_start = hex_to_rgb(0x0F0406);
+	if (win->colour == 1)
+		win->col_start = hex_to_rgb(0x060F04);
+	if (win->colour == 2)
+		win->col_start = hex_to_rgb(0x04060F);
+	if (win->colour == 3)
+		win->col_start = hex_to_rgb(0x00D9FF);
+	if (win->colour == 4)
+		win->col_start = hex_to_rgb(0xBDEB0A);
+}
 
 void	initialise_image(t_img *img, t_win *win)
 {

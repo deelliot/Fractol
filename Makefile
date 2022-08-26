@@ -6,7 +6,7 @@
 #    By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/02 14:45:22 by deelliot          #+#    #+#              #
-#    Updated: 2022/08/25 14:31:45 by deelliot         ###   ########.fr        #
+#    Updated: 2022/08/26 10:37:22 by deelliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,6 @@ SRCS += 5_fractal.c
 SRCS += 6_handle_input_2.c
 SRCS += 6_handle_input.c
 SRCS += 7_image.c
-SRCS += 8_colours.c
 SRCS += barnsley_fern.c
 
 OBJ_FILES = $(SRCS:.c=.o)

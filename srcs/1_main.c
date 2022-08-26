@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:20:37 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/25 13:57:47 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/26 10:40:36 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ void	execute_image(t_win *win)
 	if (win->fractol_option == 4)
 		barnsley_fern(win);
 	else
-		// plot_points(win);
-		create_threads(win);
+		initialise_threads(win);
 	window_menu(win);
 	mlx_loop(win->mlx);
 }

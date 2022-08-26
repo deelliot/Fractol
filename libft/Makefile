@@ -6,7 +6,7 @@
 #    By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/03 13:04:07 by deelliot          #+#    #+#              #
-#    Updated: 2022/08/05 14:55:30 by deelliot         ###   ########.fr        #
+#    Updated: 2022/08/26 10:38:03 by deelliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,9 +28,9 @@ SRCS = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 	ft_lstiter.c ft_lstadd_back.c ft_lstmap.c ft_strndup.c get_next_line.c \
 	ft_abs.c ft_memallocarray.c ft_sqrt.c ft_find_next_sqrt.c ft_max.c \
 	ft_print_array.c ft_count_words.c ft_strrev.c ft_normalise_data.c \
-	rgb_to_hex.c ft_memdelarray.c ft_memdelchararray.c ft_print_list.c \
-	del.c ft_print_int_array.c ft_stderror.c ft_linear_conversion.c \
-	ft_create_range.c
+	rgb_to_hex.c hex_to_rgb.c ft_memdelarray.c ft_memdelchararray.c \
+	ft_print_list.c del.c ft_print_int_array.c ft_stderror.c \
+	ft_linear_conversion.c ft_create_range.c
 
 INCLS =./libft.h
 

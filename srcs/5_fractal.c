@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 11:03:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/25 14:24:22 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/26 10:31:55 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,36 +144,8 @@ void	*plot_points(void *thread_data)
 				n = tricorn(thread->win, x, y);
 			else
 				n = burningship(thread->win, x, y);
-			set_colour(thread->win, n);
-			img_pixel_put(&thread->win->img, x, y, &thread->win->col_finish);
+			img_pixel_put(n, x, y, thread->win);
 		}
 	}
 	return (NULL);
 }
-
-// void	plot_points(t_win *win)
-// {
-// 	int			x;
-// 	int			y;
-// 	int			n;
-
-// 	y = -1;
-// 	while (++y < HEIGHT)
-// 	{
-// 		x = -1;
-// 		while (++x < WIDTH)
-// 		{
-// 			if (win->fractol_option == 0)
-// 				n = julia(win, x, y);
-// 			else if (win->fractol_option == 1)
-// 				n = mandelbrot(win, x, y);
-// 			else if (win->fractol_option == 2)
-// 				n = tricorn(win, x, y);
-// 			else
-// 				n = burningship(win, x, y);
-// 			set_colour(win, n);
-// 			img_pixel_put(&win->img, x, y, &win->col_finish);
-// 		}
-// 	}
-// 	mlx_put_image_to_window(win->mlx, win->win, win->img.img, 0, 0);
-// }
