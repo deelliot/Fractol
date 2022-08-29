@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:36:08 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/26 10:36:43 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/29 11:36:59 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	initialise_window(t_win *win, char *str)
 	fractal_positions(win);
 }
 
+/* sets x and y scale for each fractal */
+
 static void	reset_range(t_win *win)
 {
 	if (win->fractol_option == 0)
@@ -84,6 +86,8 @@ static void	reset_range(t_win *win)
 		win->y_range = ft_create_range(0, 9.9983);
 	}
 }
+
+/* positions fractal to centre of window and sets iterations*/
 
 void	fractal_positions(t_win *win)
 {

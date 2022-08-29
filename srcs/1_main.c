@@ -6,11 +6,13 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:20:37 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/26 11:46:50 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/29 11:34:44 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
+
+/* checks arguments match available fractals */
 
 static void	check_argument(t_win *win, char *argv)
 {
@@ -31,6 +33,8 @@ static void	check_argument(t_win *win, char *argv)
 		exit (1);
 	}
 }
+
+/* initalises image, sets colour, creates thread and calls loop function */
 
 void	execute_image(t_win *win)
 {
