@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 11:03:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/29 12:04:03 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/29 14:01:24 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,32 +70,32 @@ static int	mandelbrot(t_win *win, int x, int y)
 	return (n);
 }
 
-static int	mandelbrot_power(t_win *win, int x, int y)
-{
-	t_complex	z;
-	t_complex	c;
-	double		temp;
-	int			n;
-	double		power;
+// static int	mandelbrot_power(t_win *win, int x, int y)
+// {
+// 	t_complex	z;
+// 	t_complex	c;
+// 	double		temp;
+// 	int			n;
+// 	double		power;
 
-	z.real = 0;
-	z.imag = 0;
-	power = 4;
-	c.real = ft_linear_conversion(win->width_range, win->x_range, \
-		x + win->x_offset);
-	c.imag = ft_linear_conversion(win->height_range, win->y_range, \
-		y + win->y_offset);
-	n = 0;
-	while (n < win->max_iter && (pow(z.real, 2)) + \
-		(pow(z.imag, 2)) < 4)
-	{
-		temp = (z.real * z.real) - (z.imag * z.imag);
-		z.imag = (2 * z.real * z.imag) + c.imag;
-		z.real = temp + c.real;
-		n++;
-	}
-	return (n);
-}
+// 	z.real = 0;
+// 	z.imag = 0;
+// 	power = 4;
+// 	c.real = ft_linear_conversion(win->width_range, win->x_range, \
+// 		x + win->x_offset);
+// 	c.imag = ft_linear_conversion(win->height_range, win->y_range, \
+// 		y + win->y_offset);
+// 	n = 0;
+// 	while (n < win->max_iter && (pow(z.real, 2)) + \
+// 		(pow(z.imag, 2)) < 4)
+// 	{
+// 		temp = (z.real * z.real) - (z.imag * z.imag);
+// 		z.imag = (2 * z.real * z.imag) + c.imag;
+// 		z.real = temp + c.real;
+// 		n++;
+// 	}
+// 	return (n);
+// }
 
 /* f(n) = z^(-2) + c */
 
