@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/26 10:34:36 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/29 16:43:14 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
 # define RESET 36
 # define ITER_UP 126
 # define ITER_DOWN 125
-
+# define PI 3.142857
 typedef struct s_img
 {
 	void	*img;

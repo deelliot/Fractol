@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:20:37 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/29 11:34:44 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/29 16:44:30 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static void	check_argument(t_win *win, char *argv)
 	else if (ft_strcmp(argv, "barnsleyfern") == 0 || \
 		ft_strcmp(argv, "BF") == 0)
 			win->fractol_option = 4;
+	else if (ft_strcmp(argv, "multibrot") == 0 || ft_strcmp(argv, "P") == 0)
+		win->fractol_option = 5;
 	else
 	{
 		ft_putendl(USAGE);
