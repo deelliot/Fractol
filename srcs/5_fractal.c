@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 11:03:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/30 13:27:47 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/30 14:15:57 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ A complex number () can be represented on a complex plane.
 The real part of the complex number is represented by a displacement along
 the x-axis and the imaginary part by a displacement along the y-axis. */
 
-static int	julia(t_win *win, int x, int y)
+int	julia(t_win *win, int x, int y)
 {
 	t_complex	z;
 	t_complex	c;
@@ -43,7 +43,7 @@ static int	julia(t_win *win, int x, int y)
 	return (n);
 }
 
-static int	mandelbrot(t_win *win, int x, int y)
+int	mandelbrot(t_win *win, int x, int y)
 {
 	t_complex	z;
 	t_complex	c;
@@ -70,7 +70,7 @@ static int	mandelbrot(t_win *win, int x, int y)
 
 /* f(n) = z^(-2) + c */
 
-static int	tricorn(t_win *win, int x, int y)
+int	tricorn(t_win *win, int x, int y)
 {
 	t_complex	z;
 	t_complex	c;
@@ -97,7 +97,7 @@ static int	tricorn(t_win *win, int x, int y)
 /* same as mandelbrot except real and imaginery component set to absolute
 value before each iteration calculation */
 
-static int	burningship(t_win *win, int x, int y)
+int	burningship(t_win *win, int x, int y)
 {
 	t_complex	z;
 	t_complex	c;
@@ -122,38 +122,4 @@ static int	burningship(t_win *win, int x, int y)
 		n++;
 	}
 	return (n);
-}
-
-/* loops through each pixel of the window, passes coordinates to fractol fn,
-which calculates whether that coordinate value remains bounded or not. Then
-uses the return value to set colour and place pixel in image*/
-
-void	*plot_points(void *thread_data)
-{
-	int			x;
-	int			y;
-	t_thread	*thread;
-	int			n;
-
-	thread = (t_thread *)thread_data;
-	y = -1;
-	while (++y < HEIGHT)
-	{
-		x = (thread->start) - 1;
-		while (++x < thread->end)
-		{
-			if (thread->win->fractol_option == 0)
-				n = julia(thread->win, x, y);
-			else if (thread->win->fractol_option == 1)
-				n = mandelbrot(thread->win, x, y);
-			else if (thread->win->fractol_option == 2)
-				n = multibrot(thread->win, x, y);
-			else if (thread->win->fractol_option == 3)
-				n = tricorn(thread->win, x, y);
-			else if (thread->win->fractol_option == 4)
-				n = burningship(thread->win, x, y);
-			img_pixel_put(n, x, y, thread->win);
-		}
-	}
-	return (NULL);
 }

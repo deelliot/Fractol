@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:36:08 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/30 13:18:41 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/30 13:34:12 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,21 +61,21 @@ void	initialise_window(t_win *win, char *str)
 
 static void	positions_continued(t_win *win)
 {
-	if (win->fractol_option == 3)
+	if (win->fractol_option == 4)
 	{
 		win->x_offset = 160;
 		win->y_offset = 70;
 		win->x_range = ft_create_range(-4.29, 1.91);
 		win->y_range = ft_create_range(-2.15, 1.39);
 	}
-	else if (win->fractol_option == 4)
+	else if (win->fractol_option == 5)
 	{
 		win->x_offset = 130;
 		win->y_offset = -190;
 		win->x_range = ft_create_range(-2.33, 0.76);
 		win->y_range = ft_create_range(-1.17, 1.64);
 	}
-	else if (win->fractol_option == 5)
+	else if (win->fractol_option == 6)
 	{
 		win->x_offset = 0;
 		win->y_offset = 0;
@@ -103,7 +103,7 @@ void	fractal_positions(t_win *win)
 		win->y_range = ft_create_range(-1.12, 1.12);
 		win->max_iter = 100;
 	}
-	else if (win->fractol_option == 2)
+	else if ((win->fractol_option == 2) || (win->fractol_option == 3))
 	{
 		win->x_offset = 300;
 		win->x_range = ft_create_range(-2.6, 0.68);

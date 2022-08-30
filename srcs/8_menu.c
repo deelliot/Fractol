@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 13:06:49 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/30 13:09:14 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/30 13:40:55 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	side_menu(t_win *win)
 
 	iterations = ft_itoa(win->max_iter);
 	power = ft_itoa(win->power);
-	if (win->fractol_option == 2)
+	if (win->fractol_option == 2 || win->fractol_option == 3)
 	{
 		mlx_string_put(win->mlx, win->win, 990, 40, 0xFFFFFF, "power: ");
 		mlx_string_put(win->mlx, win->win, 1050, 40, 0xFFFFFF, power);
@@ -44,7 +44,6 @@ void	window_menu(t_win *win)
 	str[7] = "CHANGE FRACTOL   RIGHT CLICK";
 	str[8] = "QUIT:            ESC";
 	i = 0;
-
 	while (i < 9)
 	{
 		mlx_string_put(win->mlx, win->win, 20, 20 + (i * 15), 0xFFFFFF, str[i]);
@@ -52,4 +51,3 @@ void	window_menu(t_win *win)
 	}
 	side_menu(win);
 }
-

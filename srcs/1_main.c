@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:20:37 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/30 10:59:30 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/30 13:32:48 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@ static void	check_argument(t_win *win, char *argv)
 		win->fractol_option = 1;
 	else if (ft_strcmp(argv, "multibrot") == 0)
 		win->fractol_option = 2;
-	else if (ft_strcmp(argv, "tricorn") == 0)
+	else if (ft_strcmp(argv, "multijulia") == 0)
 		win->fractol_option = 3;
+	else if (ft_strcmp(argv, "tricorn") == 0)
+		win->fractol_option = 4;
 	else if (ft_strcmp(argv, "burningship") == 0)
-			win->fractol_option = 4;
-	else if (ft_strcmp(argv, "barnsleyfern") == 0)
 		win->fractol_option = 5;
+	else if (ft_strcmp(argv, "barnsleyfern") == 0)
+		win->fractol_option = 6;
 	else
 	{
 		ft_putendl(USAGE);
@@ -41,7 +43,7 @@ void	execute_image(t_win *win)
 {
 	initialise_image(&win->img, win);
 	initialise_colour(win);
-	if (win->fractol_option == 5)
+	if (win->fractol_option == 6)
 		barnsley_fern(win);
 	else
 		initialise_threads(win);

@@ -6,7 +6,7 @@
 #    By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/02 14:45:22 by deelliot          #+#    #+#              #
-#    Updated: 2022/08/30 13:09:33 by deelliot         ###   ########.fr        #
+#    Updated: 2022/08/30 14:23:18 by deelliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,15 +24,16 @@ MINILBX_DIR = ./minilibx/
 # Source and object files
 SRCS = 1_main.c
 SRCS += 2_initialise.c
-SRCS += 3_error_handling.c
-SRCS += 4_threads.c
+SRCS += 3_threads.c
+SRCS += 4_plot.c
 SRCS += 5_fractal.c
-SRCS += 6_handle_input_2.c
-SRCS += 6_handle_input.c
-SRCS += 7_image.c
-SRCS += barnsley_fern.c
-SRCS += multibrot.c
-SRCS += menu.c
+SRCS += 5_multibrot.c
+SRCS += 5_barnsley_fern.c
+SRCS += 6_image.c
+SRCS += 7_mouse_input.c
+SRCS += 7_key_input.c
+SRCS += 8_menu.c
+SRCS += 9_error_handling.c
 
 OBJ_FILES = $(SRCS:.c=.o)
 
@@ -72,11 +73,13 @@ $(NAME): $(OBJ)
 	@echo "***** $(NAME) generated *****"
 	@echo
 	@echo "Usage: ./fractol + option"
-	@echo "options: >> julia / J"
-	@echo "options: >> mandelbrot / M"
-	@echo "options: >> tricorn / T"
-	@echo "options: >> burningship / B"
-	@echo "options: >> barnsleyfern / BF"
+	@echo "options: >> julia"
+	@echo "options: >> mandelbrot"
+	@echo "options: >> multibrot"
+	@echo "options: >> multijulia"
+	@echo "options: >> tricorn"
+	@echo "options: >> burningship"
+	@echo "options: >> barnsleyfern"
 
 clean:
 	@rm -Rf $(OBJ_DIR)

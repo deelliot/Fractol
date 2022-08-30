@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   6_handle_input.c                                   :+:      :+:    :+:   */
+/*   mouse_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 17:09:59 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/30 13:10:19 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/30 13:57:42 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	mouse_input(int mouse, int x, int y, t_win *win)
 	if (mouse == MOUSE_RIGHT)
 	{
 		win->fractol_option += 1;
-		if (win->fractol_option == 6)
+		if (win->fractol_option == 7)
 			win->fractol_option = 0;
 		mlx_clear_window(win->mlx, win->win);
 		fractal_positions(win);
@@ -74,13 +74,27 @@ int	mouse_motion(int x, int y, t_win *win)
 	return (0);
 }
 
-void	handle_power(t_win *win)
+void	handle_zoom(int key, int x, int y, t_win *win)
 {
-	win->power += 1;
-	if (win->power == 10)
-		win->power = -5;
-	if (win->power == -1)
-		win->power = 2;
+	double	x_axis;
+	double	y_axis;
+
+	if (x == -1)
+		x = win->width_range.median;
+	if (y == -1)
+		y = win->height_range.median;
+	if (key == ZOOM_IN || key == SCROLL_UP)
+		win->zoom = 0.9;
+	else
+		win->zoom = 1.1;
+	x_axis = ft_linear_conversion(win->width_range, win->x_range, \
+		x + win->x_offset);
+	y_axis = ft_linear_conversion(win->height_range, win->y_range, \
+		y + win->y_offset);
+	win->x_range.max = x_axis + ((win->x_range.max - x_axis) * win->zoom);
+	win->x_range.min = x_axis + ((win->x_range.min - x_axis) * win->zoom);
+	win->y_range.max = y_axis + ((win->y_range.max - y_axis) * win->zoom);
+	win->y_range.min = y_axis + ((win->y_range.min - y_axis) * win->zoom);
 	mlx_clear_window(win->mlx, win->win);
 	execute_image(win);
 }

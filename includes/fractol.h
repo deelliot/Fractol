@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/30 12:34:20 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/30 14:16:50 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@
 # define WIDTH 1080
 # define HEIGHT 720
 
-# define USAGE "Usage: ./fractol (Julia / Mandelbrot / Tricorn / Burning_Ship \
-/ Barnsley_Fern)"
+# define USAGE "Usage: ./fractol (julia / mandelbrot / mulitbrot \
+/ multijulia / tricorn / burningship / barnsleyfern)"
 
 /* key values */
-# define MAX_THREADS 12
+# define MAX_THREADS 32
 # define KEY_DOWN 2
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
@@ -47,6 +47,7 @@
 # define ITER_UP 126
 # define ITER_DOWN 125
 # define POWER 35
+
 typedef struct s_img
 {
 	void	*img;
@@ -112,9 +113,16 @@ void	window_menu(t_win *win);
 
 /* draw functions */
 void	*plot_points(void *thread_data);
-int		multibrot(t_win *win, int x, int y);
-void	barnsley_fern(t_win *win);
 void	img_pixel_put(int n, int x, int y, t_win *win);
+
+/*fractal functions */
+int		julia(t_win *win, int x, int y);
+int		mandelbrot(t_win *win, int x, int y);
+int		multibrot(t_win *win, int x, int y);
+int		multijulia(t_win *win, int x, int y);
+int		tricorn(t_win *win, int x, int y);
+int		burningship(t_win *win, int x, int y);
+void	barnsley_fern(t_win *win);
 
 /* handle user input */
 int		handle_input(int key, t_win *win);
