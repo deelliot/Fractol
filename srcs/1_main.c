@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:20:37 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/29 16:44:30 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/30 10:59:30 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,17 @@
 
 static void	check_argument(t_win *win, char *argv)
 {
-	if (ft_strcmp(argv, "julia") == 0 || ft_strcmp(argv, "J") == 0)
+	if (ft_strcmp(argv, "julia") == 0)
 		win->fractol_option = 0;
-	else if (ft_strcmp(argv, "mandelbrot") == 0 || ft_strcmp(argv, "M") == 0)
+	else if (ft_strcmp(argv, "mandelbrot") == 0)
 		win->fractol_option = 1;
-	else if (ft_strcmp(argv, "tricorn") == 0 || ft_strcmp(argv, "T") == 0)
+	else if (ft_strcmp(argv, "multibrot") == 0)
 		win->fractol_option = 2;
-	else if (ft_strcmp(argv, "burningship") == 0 || ft_strcmp(argv, "B") == 0)
+	else if (ft_strcmp(argv, "tricorn") == 0)
 		win->fractol_option = 3;
-	else if (ft_strcmp(argv, "barnsleyfern") == 0 || \
-		ft_strcmp(argv, "BF") == 0)
+	else if (ft_strcmp(argv, "burningship") == 0)
 			win->fractol_option = 4;
-	else if (ft_strcmp(argv, "multibrot") == 0 || ft_strcmp(argv, "P") == 0)
+	else if (ft_strcmp(argv, "barnsleyfern") == 0)
 		win->fractol_option = 5;
 	else
 	{
@@ -42,7 +41,7 @@ void	execute_image(t_win *win)
 {
 	initialise_image(&win->img, win);
 	initialise_colour(win);
-	if (win->fractol_option == 4)
+	if (win->fractol_option == 5)
 		barnsley_fern(win);
 	else
 		initialise_threads(win);

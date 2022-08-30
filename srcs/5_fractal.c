@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 11:03:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/29 16:45:57 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/30 11:53:03 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,53 +19,6 @@
 A complex number () can be represented on a complex plane.
 The real part of the complex number is represented by a displacement along
 the x-axis and the imaginary part by a displacement along the y-axis. */
-
-static double atan(double x, double y)
-{
-	double	result;
-
-	if (x > 0)
-		result = arctan(x/y);
-	else if (x < 0 && y >= 0)
-		result = arctan(y/x) + PI;
-	else if (x < 0 && y < 0)
-		result = arctan(y/x) - PI;
-	else if (x == 0 && y > 0)
-		result = PI / 2;
-	else if (x == 0 && y < 0)
-		result = -PI / 2;
-	else
-		result = 1/0;
-}
-
-static int	multibrot(t_win *win, int x, int y)
-{
-	t_complex	z;
-	t_complex	c;
-	double		temp;
-	int			n;
-	int			power;
-
-	z.real = 0;
-	z.imag = 0;
-	c.real = ft_linear_conversion(win->width_range, win->x_range, \
-		x + win->x_offset);
-	c.imag = ft_linear_conversion(win->height_range, win->y_range, \
-		y + win->y_offset);
-	n = 0;
-	power = 3;
-	while (n < win->max_iter && (pow(z.real, 2)) + \
-		(pow(z.imag, 2)) < 4)
-	{
-		temp = pow((pow(z.real, 2)+ pow(z.imag, 2)), power / 2) * \
-		cos(power * atan(z.real, z.imag)) + c.real;
-		z.imag = pow((pow(z.real, 2)+ pow(z.imag, 2)), power / 2) * \
-		sin(power * atan(z.real, z.imag)) + c.imag;
-		z.real = temp;
-		n++;
-	}
-	return (n);
-}
 
 static int	julia(t_win *win, int x, int y)
 {
@@ -137,7 +90,7 @@ static int	tricorn(t_win *win, int x, int y)
 		(z.imag * z.imag) < 4)
 	{
 		temp = (z.real * z.real) - (z.imag * z.imag);
-		z.imag = -3 * z.real * z.imag + c.imag;
+		z.imag = -2 * z.real * z.imag + c.imag;
 		z.real = temp + c.real;
 		n++;
 	}
@@ -196,11 +149,11 @@ void	*plot_points(void *thread_data)
 			else if (thread->win->fractol_option == 1)
 				n = mandelbrot(thread->win, x, y);
 			else if (thread->win->fractol_option == 2)
-				n = tricorn(thread->win, x, y);
-			else if (thread->win->fractol_option == 3)
-				n = burningship(thread->win, x, y);
-			else if (thread->win->fractol_option == 5)
 				n = multibrot(thread->win, x, y);
+			else if (thread->win->fractol_option == 3)
+				n = tricorn(thread->win, x, y);
+			else if (thread->win->fractol_option == 4)
+				n = burningship(thread->win, x, y);
 			img_pixel_put(n, x, y, thread->win);
 		}
 	}

@@ -1,0 +1,8 @@
+{
+	"files.associations": {
+		"*c.test": "c",
+		"cmath": "c",
+		"complex": "c",
+		"numeric": "c"
+	}
+}

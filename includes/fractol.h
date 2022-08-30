@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/29 16:43:14 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/30 12:34:20 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@
 # define RESET 36
 # define ITER_UP 126
 # define ITER_DOWN 125
-# define PI 3.142857
+# define POWER 35
 typedef struct s_img
 {
 	void	*img;
@@ -88,6 +88,7 @@ typedef struct s_win
 	double		mouse_x;
 	double		mouse_y;
 	int			lock;
+	double		power;
 }				t_win;
 
 typedef struct s_thread
@@ -111,6 +112,7 @@ void	window_menu(t_win *win);
 
 /* draw functions */
 void	*plot_points(void *thread_data);
+int		multibrot(t_win *win, int x, int y);
 void	barnsley_fern(t_win *win);
 void	img_pixel_put(int n, int x, int y, t_win *win);
 
@@ -122,6 +124,7 @@ void	handle_translation(int key, t_win *win);
 void	handle_zoom(int key, int x, int y, t_win *win);
 void	handle_colour(t_win *win);
 void	handle_iterations(int key, t_win *win);
+void	handle_power(t_win *win);
 void	handle_reset(t_win *win);
 void	esc_program(t_win *win);
 

@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 17:09:59 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/29 16:44:58 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/30 12:31:25 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	handle_input(int key, t_win *win)
 		handle_colour(win);
 	if (key == ITER_UP || key == ITER_DOWN)
 		handle_iterations(key, win);
+	if (key == POWER)
+		handle_power(win);
 	if (key == RESET)
 		handle_reset(win);
 	if (key == ESC)

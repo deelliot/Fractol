@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 10:47:17 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/29 16:44:45 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/30 12:30:40 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	handle_translation(int key, t_win *win)
 {
 	int	inc;
 
-	if (win->fractol_option == 4)
+	if (win->fractol_option == 5)
 		inc = 1;
 	else
 		inc = 10;
@@ -81,13 +81,12 @@ void	handle_iterations(int key, t_win *win)
 
 void	handle_reset(t_win *win)
 {
-	win->max_iter = 300;
 	win->zoom = 0.0;
-	win->y_offset = 0.0;
 	win->colour = 0;
 	win->mouse_x = -0.7269;
 	win->mouse_y = 0.1889;
 	win->lock = 1;
+	win->power = 3;
 	fractal_positions(win);
 	mlx_clear_window(win->mlx, win->win);
 	execute_image(win);
