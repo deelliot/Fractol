@@ -6,16 +6,14 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 11:03:23 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/30 11:53:03 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/30 13:27:47 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
 /* f(z) = (z * z) + c, where c = a + bi.
-
  f[{x, y}] = {(a^2 - b^2) + c1}, {2xy + c2}
-
 A complex number () can be represented on a complex plane.
 The real part of the complex number is represented by a displacement along
 the x-axis and the imaginary part by a displacement along the y-axis. */

@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/12 17:09:59 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/30 12:31:25 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/08/30 13:10:19 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,27 +74,13 @@ int	mouse_motion(int x, int y, t_win *win)
 	return (0);
 }
 
-void	window_menu(t_win *win)
+void	handle_power(t_win *win)
 {
-	char	*str[8];
-	int		i;
-	char	*iterations;
-
-	str[0] = "MOVE:            W, S, A, D";
-	str[1] = "ZOOM:            I and O / MOUSE SCROLL";
-	str[2] = "COLOUR:          SPACE";
-	str[3] = "RESET:           ENTER";
-	str[4] = "ITERATIONS:      ARROW UP & DOWN";
-	str[5] = "LOCK JULIA       LEFT CLICK";
-	str[6] = "CHANGE FRACTOL   RIGHT CLICK";
-	str[7] = "QUIT:            ESC";
-	i = 0;
-	iterations = ft_itoa(win->max_iter);
-	while (i < 8)
-	{
-		mlx_string_put(win->mlx, win->win, 20, 20 + (i * 15), 0xFFFFFF, str[i]);
-		i++;
-	}
-	mlx_string_put(win->mlx, win->win, 1000, 20, 0xFFFFFF, iterations);
-	free (iterations);
+	win->power += 1;
+	if (win->power == 10)
+		win->power = -5;
+	if (win->power == -1)
+		win->power = 2;
+	mlx_clear_window(win->mlx, win->win);
+	execute_image(win);
 }
