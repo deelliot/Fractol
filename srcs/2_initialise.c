@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:36:08 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/30 13:34:12 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/09/07 09:32:29 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +63,17 @@ static void	positions_continued(t_win *win)
 {
 	if (win->fractol_option == 4)
 	{
-		win->x_offset = 160;
-		win->y_offset = 70;
-		win->x_range = ft_create_range(-4.29, 1.91);
-		win->y_range = ft_create_range(-2.15, 1.39);
+		win->x_offset = -40;
+		win->y_offset = 0;
+		win->x_range = ft_create_range(-3.47, 3.47);
+		win->y_range = ft_create_range(-2.32, 2.32);
 	}
 	else if (win->fractol_option == 5)
 	{
-		win->x_offset = 130;
-		win->y_offset = -190;
-		win->x_range = ft_create_range(-2.33, 0.76);
-		win->y_range = ft_create_range(-1.17, 1.64);
+		win->x_offset = -120;
+		win->y_offset = -100;
+		win->x_range = ft_create_range(-2.48, 2.48);
+		win->y_range = ft_create_range(-1.63, 1.63);
 	}
 	else if (win->fractol_option == 6)
 	{
@@ -89,25 +89,26 @@ void	fractal_positions(t_win *win)
 {
 	if (win->fractol_option == 0)
 	{
-		win->x_offset = 340;
-		win->y_offset = 40;
-		win->x_range = ft_create_range(-2.67, 0.62);
-		win->y_range = ft_create_range(-1.68, 1.30);
+		win->x_offset = 0;
+		win->y_offset = 0;
+		win->x_range = ft_create_range(-2, 2);
+		win->y_range = ft_create_range(-1.25, 1.25);
 		win->max_iter = 300;
 	}
 	else if (win->fractol_option == 1)
 	{
-		win->x_offset = 0;
+		win->x_offset = -180;
 		win->y_offset = 0;
-		win->x_range = ft_create_range(-2.00, 0.47);
-		win->y_range = ft_create_range(-1.12, 1.12);
+		win->x_range = ft_create_range(-2.40, 2.40);
+		win->y_range = ft_create_range(-1.58, 1.58);
 		win->max_iter = 100;
 	}
 	else if ((win->fractol_option == 2) || (win->fractol_option == 3))
 	{
-		win->x_offset = 300;
-		win->x_range = ft_create_range(-2.6, 0.68);
-		win->y_range = ft_create_range(-1.54, 1.44);
+		win->x_offset = -30;
+		win->y_offset = 10;
+		win->x_range = ft_create_range(-3.47, 3.47);
+		win->y_range = ft_create_range(-2.32, 2.32);
 	}
 	else
 		positions_continued(win);

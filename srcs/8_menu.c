@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   menu.c                                             :+:      :+:    :+:   */
+/*   8_menu.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 13:06:49 by deelliot          #+#    #+#             */
-/*   Updated: 2022/08/30 13:40:55 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/09/07 09:28:03 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void	side_menu(t_win *win)
 	power = ft_itoa(win->power);
 	if (win->fractol_option == 2 || win->fractol_option == 3)
 	{
-		mlx_string_put(win->mlx, win->win, 990, 40, 0xFFFFFF, "power: ");
-		mlx_string_put(win->mlx, win->win, 1050, 40, 0xFFFFFF, power);
+		mlx_string_put(win->mlx, win->win, 1190, 40, 0xFFFFFF, "power: ");
+		mlx_string_put(win->mlx, win->win, 1250, 40, 0xFFFFFF, power);
 	}
-	mlx_string_put(win->mlx, win->win, 990, 20, 0xFFFFFF, iterations);
+	mlx_string_put(win->mlx, win->win, 1190, 20, 0xFFFFFF, iterations);
 	free (iterations);
 	free (power);
 }
