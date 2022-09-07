@@ -6,7 +6,7 @@
 #    By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/02 14:45:22 by deelliot          #+#    #+#              #
-#    Updated: 2022/08/30 14:23:18 by deelliot         ###   ########.fr        #
+#    Updated: 2022/09/07 09:35:46 by deelliot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,8 +46,6 @@ MINLBX = $(addprefix $(MINILBX_DIR), libmlx.a)
 # Libraries
 LINKS =  -L $(LIBFT_DIR) -lft
 LINKS +=  -L $(MINILBX_DIR) -lmlx -Ofast -framework OpenGL -framework Appkit
-# LINKS += -L /usr/local/lib -lmlx -I /usr/local/include -framework \
-# 	OpenGL -framework AppKit
 
 #Rules
 all: obj $(LIBFT) $(MINLBX) $(NAME)

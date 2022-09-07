@@ -6,7 +6,7 @@
 /*   By: deelliot <deelliot@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 10:15:00 by deelliot          #+#    #+#             */
-/*   Updated: 2022/09/07 08:39:20 by deelliot         ###   ########.fr       */
+/*   Updated: 2022/09/07 09:36:08 by deelliot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "../libft/includes/libft.h"
 # include "../minilibx/mlx.h"
-// # include "mlx.h"
 # include <math.h>
 # include <pthread.h>
 
